@@ -37,8 +37,8 @@ Automation.list \
 all: Automation.elf secondary-outputs
 
 # Tool invocations
-Automation.elf: $(OBJS) $(USER_OBJS) C:\Users\Athishay\Desktop\AgreeLeaf\Industrial\ Automation\STM32F746ZGTX_FLASH.ld
-	arm-none-eabi-gcc -o "Automation.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\Athishay\Desktop\AgreeLeaf\Industrial Automation\STM32F746ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Automation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Automation.elf: $(OBJS) $(USER_OBJS) C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\IndustrialAutomation\ v1.1\STM32F746ZGTX_FLASH.ld
+	arm-none-eabi-gcc -o "Automation.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\IndustrialAutomation v1.1\STM32F746ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Automation.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
