@@ -1,0 +1,10 @@
+C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\Automation\bin\Debug\Automation.exe.config
+C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\Automation\bin\Debug\Automation.exe
+C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\Automation\bin\Debug\Automation.pdb
+C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\Automation\obj\Debug\Automation.csprojAssemblyReference.cache
+C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\Automation\obj\Debug\Automation.Properties.Resources.resources
+C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\Automation\obj\Debug\Automation.csproj.GenerateResource.cache
+C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\Automation\obj\Debug\Automation.csproj.CoreCompileInputs.cache
+C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\Automation\obj\Debug\Automation.exe
+C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\Automation\obj\Debug\Automation.pdb
+C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\Automation\obj\Debug\Automation.PAL.Login.resources
