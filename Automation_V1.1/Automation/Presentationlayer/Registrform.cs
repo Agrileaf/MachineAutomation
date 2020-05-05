@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Automation.Businesslayer;
 using Automation.Datalayer;
 
+
 namespace Automation.Presentationlayer
 {
     public partial class Registrform : Form
@@ -38,15 +39,24 @@ namespace Automation.Presentationlayer
             regparam.Firstname =tbFname_regform.Text;
             regparam.Lastname =tbLname_regform.Text;
             regparam.Contact = tbContact_regform.Text;
-            regparam.Gender = "Male";
             regparam.Useraddress = tbAddr_regform.Text;
-            regparam.Question1 =cbQes1_regform.Text;
-            regparam.Question2 =cbQes2_regform.Text;
+            regparam.Question1 = cbQes1_regform.SelectedIndex;
+            regparam.Question2 = cbQes2_regform.SelectedIndex;
             regparam.Username =tbUser_regform.Text;
             regparam.Password =tbPass_regform.Text;
-            Registordll regpagedll = new Registordll();
-            regpagedll.StoreRegparam(regparam);
-            MessageBox.Show("Registration Success", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            regparam.Retypepassword = tbretypepass_regform.Text;
+            regparam.Answer1 = tbAns1_regform.Text;
+            regparam.Answer2 = tbAns2_regform.Text;
+            regparam.male = cbMale.Checked;
+            regparam.female = cbFemale.Checked;
+            regparam.others = cbOther.Checked;
+
+            Registrationbll regdll = new Registrationbll();
+            if (regdll.Getregparam(regparam))
+                this.Close();
+
+
+
         }
     }
 }

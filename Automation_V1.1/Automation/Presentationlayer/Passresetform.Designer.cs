@@ -29,27 +29,27 @@
         private void InitializeComponent()
         {
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbQuest2_resetform = new System.Windows.Forms.ComboBox();
+            this.cbQuest1_resetform = new System.Windows.Forms.ComboBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.tbAnswer2_resetform = new System.Windows.Forms.TextBox();
+            this.tbAnswer1_resetform = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnRegistor = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.pnlResetpass = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.tbresetpass = new System.Windows.Forms.TextBox();
+            this.tbpassword = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.lbPassword = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbuser_resetform = new System.Windows.Forms.TextBox();
             this.lbUsername = new System.Windows.Forms.Label();
             this.lbExit3 = new System.Windows.Forms.Label();
             this.pnlResetpass.SuspendLayout();
@@ -66,33 +66,35 @@
             this.label3.TabIndex = 19;
             this.label3.Text = "Reset Password";
             // 
-            // comboBox2
+            // cbQuest2_resetform
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.DarkGray;
-            this.comboBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cbQuest2_resetform.BackColor = System.Drawing.Color.DarkGray;
+            this.cbQuest2_resetform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbQuest2_resetform.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbQuest2_resetform.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cbQuest2_resetform.FormattingEnabled = true;
+            this.cbQuest2_resetform.Items.AddRange(new object[] {
             "Company name",
             "place"});
-            this.comboBox2.Location = new System.Drawing.Point(381, 183);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(200, 24);
-            this.comboBox2.TabIndex = 59;
-            this.comboBox2.Text = "* Please select the question";
+            this.cbQuest2_resetform.Location = new System.Drawing.Point(381, 183);
+            this.cbQuest2_resetform.Name = "cbQuest2_resetform";
+            this.cbQuest2_resetform.Size = new System.Drawing.Size(200, 24);
+            this.cbQuest2_resetform.TabIndex = 59;
             // 
-            // comboBox1
+            // cbQuest1_resetform
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.DarkGray;
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbQuest1_resetform.BackColor = System.Drawing.Color.DarkGray;
+            this.cbQuest1_resetform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbQuest1_resetform.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.cbQuest1_resetform.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cbQuest1_resetform.FormattingEnabled = true;
+            this.cbQuest1_resetform.Items.AddRange(new object[] {
             "Company name",
             "place"});
-            this.comboBox1.Location = new System.Drawing.Point(381, 111);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 24);
-            this.comboBox1.TabIndex = 58;
-            this.comboBox1.Text = "* Please select the question";
+            this.cbQuest1_resetform.Location = new System.Drawing.Point(383, 113);
+            this.cbQuest1_resetform.Name = "cbQuest1_resetform";
+            this.cbQuest1_resetform.Size = new System.Drawing.Size(200, 24);
+            this.cbQuest1_resetform.TabIndex = 58;
             // 
             // panel5
             // 
@@ -110,29 +112,29 @@
             this.panel4.Size = new System.Drawing.Size(200, 1);
             this.panel4.TabIndex = 56;
             // 
-            // textBox6
+            // tbAnswer2_resetform
             // 
-            this.textBox6.BackColor = System.Drawing.Color.DarkGray;
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.textBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBox6.Location = new System.Drawing.Point(381, 225);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(200, 16);
-            this.textBox6.TabIndex = 55;
-            this.textBox6.Text = "Answer 2";
+            this.tbAnswer2_resetform.BackColor = System.Drawing.Color.DarkGray;
+            this.tbAnswer2_resetform.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbAnswer2_resetform.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbAnswer2_resetform.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbAnswer2_resetform.Location = new System.Drawing.Point(381, 225);
+            this.tbAnswer2_resetform.Name = "tbAnswer2_resetform";
+            this.tbAnswer2_resetform.Size = new System.Drawing.Size(200, 16);
+            this.tbAnswer2_resetform.TabIndex = 55;
+            this.tbAnswer2_resetform.Text = "Answer 2";
             // 
-            // textBox5
+            // tbAnswer1_resetform
             // 
-            this.textBox5.BackColor = System.Drawing.Color.DarkGray;
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBox5.Location = new System.Drawing.Point(381, 151);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(200, 16);
-            this.textBox5.TabIndex = 54;
-            this.textBox5.Text = "Answer 1";
+            this.tbAnswer1_resetform.BackColor = System.Drawing.Color.DarkGray;
+            this.tbAnswer1_resetform.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbAnswer1_resetform.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbAnswer1_resetform.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbAnswer1_resetform.Location = new System.Drawing.Point(381, 151);
+            this.tbAnswer1_resetform.Name = "tbAnswer1_resetform";
+            this.tbAnswer1_resetform.Size = new System.Drawing.Size(200, 16);
+            this.tbAnswer1_resetform.TabIndex = 54;
+            this.tbAnswer1_resetform.Text = "Answer 1";
             // 
             // label10
             // 
@@ -178,27 +180,27 @@
             this.label7.TabIndex = 50;
             this.label7.Text = "Qestion 1:";
             // 
-            // btnRegistor
+            // btnSubmit
             // 
-            this.btnRegistor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnRegistor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistor.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistor.ForeColor = System.Drawing.Color.White;
-            this.btnRegistor.Location = new System.Drawing.Point(288, 265);
-            this.btnRegistor.Name = "btnRegistor";
-            this.btnRegistor.Size = new System.Drawing.Size(193, 34);
-            this.btnRegistor.TabIndex = 60;
-            this.btnRegistor.Text = "Submit";
-            this.btnRegistor.UseVisualStyleBackColor = false;
-            this.btnRegistor.Click += new System.EventHandler(this.btnRegistor_Click);
+            this.btnSubmit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSubmit.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.ForeColor = System.Drawing.Color.White;
+            this.btnSubmit.Location = new System.Drawing.Point(288, 265);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(193, 34);
+            this.btnSubmit.TabIndex = 60;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Click += new System.EventHandler(this.btnRegistor_Click);
             // 
             // pnlResetpass
             // 
             this.pnlResetpass.Controls.Add(this.button1);
             this.pnlResetpass.Controls.Add(this.panel7);
             this.pnlResetpass.Controls.Add(this.panel8);
-            this.pnlResetpass.Controls.Add(this.textBox3);
-            this.pnlResetpass.Controls.Add(this.textBox7);
+            this.pnlResetpass.Controls.Add(this.tbresetpass);
+            this.pnlResetpass.Controls.Add(this.tbpassword);
             this.pnlResetpass.Controls.Add(this.label13);
             this.pnlResetpass.Controls.Add(this.lbPassword);
             this.pnlResetpass.Location = new System.Drawing.Point(175, 317);
@@ -219,6 +221,7 @@
             this.button1.TabIndex = 74;
             this.button1.Text = "Reset Password";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panel7
             // 
@@ -236,29 +239,29 @@
             this.panel8.Size = new System.Drawing.Size(200, 1);
             this.panel8.TabIndex = 72;
             // 
-            // textBox3
+            // tbresetpass
             // 
-            this.textBox3.BackColor = System.Drawing.Color.DarkGray;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBox3.Location = new System.Drawing.Point(206, 56);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 16);
-            this.textBox3.TabIndex = 71;
-            this.textBox3.Text = "retype-password";
+            this.tbresetpass.BackColor = System.Drawing.Color.DarkGray;
+            this.tbresetpass.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbresetpass.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbresetpass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbresetpass.Location = new System.Drawing.Point(206, 56);
+            this.tbresetpass.Name = "tbresetpass";
+            this.tbresetpass.Size = new System.Drawing.Size(200, 16);
+            this.tbresetpass.TabIndex = 71;
+            this.tbresetpass.Text = "retype-password";
             // 
-            // textBox7
+            // tbpassword
             // 
-            this.textBox7.BackColor = System.Drawing.Color.DarkGray;
-            this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox7.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.textBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBox7.Location = new System.Drawing.Point(206, 19);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(200, 16);
-            this.textBox7.TabIndex = 70;
-            this.textBox7.Text = "password";
+            this.tbpassword.BackColor = System.Drawing.Color.DarkGray;
+            this.tbpassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbpassword.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbpassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbpassword.Location = new System.Drawing.Point(206, 19);
+            this.tbpassword.Name = "tbpassword";
+            this.tbpassword.Size = new System.Drawing.Size(200, 16);
+            this.tbpassword.TabIndex = 70;
+            this.tbpassword.Text = "password";
             // 
             // label13
             // 
@@ -290,17 +293,17 @@
             this.panel9.Size = new System.Drawing.Size(200, 1);
             this.panel9.TabIndex = 64;
             // 
-            // textBox4
+            // tbuser_resetform
             // 
-            this.textBox4.BackColor = System.Drawing.Color.DarkGray;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBox4.Location = new System.Drawing.Point(381, 77);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(200, 16);
-            this.textBox4.TabIndex = 63;
-            this.textBox4.Text = "User Name";
+            this.tbuser_resetform.BackColor = System.Drawing.Color.DarkGray;
+            this.tbuser_resetform.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbuser_resetform.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbuser_resetform.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbuser_resetform.Location = new System.Drawing.Point(381, 77);
+            this.tbuser_resetform.Name = "tbuser_resetform";
+            this.tbuser_resetform.Size = new System.Drawing.Size(200, 16);
+            this.tbuser_resetform.TabIndex = 63;
+            this.tbuser_resetform.Text = "User Name";
             // 
             // lbUsername
             // 
@@ -333,16 +336,16 @@
             this.ClientSize = new System.Drawing.Size(800, 504);
             this.Controls.Add(this.lbExit3);
             this.Controls.Add(this.panel9);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.tbuser_resetform);
             this.Controls.Add(this.lbUsername);
             this.Controls.Add(this.pnlResetpass);
-            this.Controls.Add(this.btnRegistor);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.cbQuest2_resetform);
+            this.Controls.Add(this.cbQuest1_resetform);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.tbAnswer2_resetform);
+            this.Controls.Add(this.tbAnswer1_resetform);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -363,27 +366,27 @@
         #endregion
 
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbQuest2_resetform;
+        private System.Windows.Forms.ComboBox cbQuest1_resetform;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox tbAnswer2_resetform;
+        private System.Windows.Forms.TextBox tbAnswer1_resetform;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button btnRegistor;
+        private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Panel pnlResetpass;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox tbresetpass;
+        private System.Windows.Forms.TextBox tbpassword;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label lbPassword;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbuser_resetform;
         private System.Windows.Forms.Label lbUsername;
         private System.Windows.Forms.Label lbExit3;
     }

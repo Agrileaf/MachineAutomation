@@ -15,7 +15,7 @@ namespace Automation.Presentationlayer
     public partial class Loginform : Form
     {
 
-
+        Readparamdb readlogin = new Readparamdb();
         public Loginform()
         {
             InitializeComponent();
@@ -49,7 +49,19 @@ namespace Automation.Presentationlayer
 
         private void btnSignin_Click(object sender, EventArgs e)
         {
-
+            readlogin.username = tbUsername.Text;
+            readlogin.password = tbPassword.Text;
+            Registrationbll regdll = new Registrationbll();
+            if (regdll.Checklogin(readlogin))
+            {
+                MessageBox.Show("Login Success", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                Mainform mainform = new Mainform();
+                mainform.Show();   
+            }
+            else
+            {
+                MessageBox.Show("Invalid login details", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

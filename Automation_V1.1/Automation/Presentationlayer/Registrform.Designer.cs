@@ -44,14 +44,14 @@
             this.tbContact_regform = new System.Windows.Forms.TextBox();
             this.btnRegistor = new System.Windows.Forms.Button();
             this.tbAns1_regform = new System.Windows.Forms.TextBox();
-            this.tbQes2_regform = new System.Windows.Forms.TextBox();
+            this.tbAns2_regform = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.cbMale = new System.Windows.Forms.CheckBox();
+            this.cbFemale = new System.Windows.Forms.CheckBox();
             this.lbExit1 = new System.Windows.Forms.Label();
             this.cbQes1_regform = new System.Windows.Forms.ComboBox();
             this.cbQes2_regform = new System.Windows.Forms.ComboBox();
@@ -66,6 +66,7 @@
             this.tbretypepass_regform = new System.Windows.Forms.TextBox();
             this.tbUser_regform = new System.Windows.Forms.TextBox();
             this.tbPass_regform = new System.Windows.Forms.TextBox();
+            this.cbOther = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lbExit2
@@ -252,17 +253,17 @@
             this.tbAns1_regform.TabIndex = 37;
             this.tbAns1_regform.Text = "Answer 1";
             // 
-            // tbQes2_regform
+            // tbAns2_regform
             // 
-            this.tbQes2_regform.BackColor = System.Drawing.Color.DarkGray;
-            this.tbQes2_regform.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbQes2_regform.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.tbQes2_regform.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.tbQes2_regform.Location = new System.Drawing.Point(411, 431);
-            this.tbQes2_regform.Name = "tbQes2_regform";
-            this.tbQes2_regform.Size = new System.Drawing.Size(200, 16);
-            this.tbQes2_regform.TabIndex = 38;
-            this.tbQes2_regform.Text = "Answer 2";
+            this.tbAns2_regform.BackColor = System.Drawing.Color.DarkGray;
+            this.tbAns2_regform.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbAns2_regform.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tbAns2_regform.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.tbAns2_regform.Location = new System.Drawing.Point(411, 431);
+            this.tbAns2_regform.Name = "tbAns2_regform";
+            this.tbAns2_regform.Size = new System.Drawing.Size(200, 16);
+            this.tbAns2_regform.TabIndex = 38;
+            this.tbAns2_regform.Text = "Answer 2";
             // 
             // panel1
             // 
@@ -304,27 +305,27 @@
             this.panel5.Size = new System.Drawing.Size(200, 1);
             this.panel5.TabIndex = 43;
             // 
-            // checkBox1
+            // cbMale
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.checkBox1.Location = new System.Drawing.Point(411, 196);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(60, 20);
-            this.checkBox1.TabIndex = 44;
-            this.checkBox1.Text = "Male";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbMale.AutoSize = true;
+            this.cbMale.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cbMale.Location = new System.Drawing.Point(411, 196);
+            this.cbMale.Name = "cbMale";
+            this.cbMale.Size = new System.Drawing.Size(60, 20);
+            this.cbMale.TabIndex = 44;
+            this.cbMale.Text = "Male";
+            this.cbMale.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // cbFemale
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.checkBox2.Location = new System.Drawing.Point(498, 197);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(74, 20);
-            this.checkBox2.TabIndex = 45;
-            this.checkBox2.Text = "Female";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.cbFemale.AutoSize = true;
+            this.cbFemale.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cbFemale.Location = new System.Drawing.Point(477, 196);
+            this.cbFemale.Name = "cbFemale";
+            this.cbFemale.Size = new System.Drawing.Size(74, 20);
+            this.cbFemale.TabIndex = 45;
+            this.cbFemale.Text = "Female";
+            this.cbFemale.UseVisualStyleBackColor = true;
             // 
             // lbExit1
             // 
@@ -341,6 +342,8 @@
             // cbQes1_regform
             // 
             this.cbQes1_regform.BackColor = System.Drawing.Color.DarkGray;
+            this.cbQes1_regform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbQes1_regform.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbQes1_regform.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.cbQes1_regform.FormattingEnabled = true;
             this.cbQes1_regform.Items.AddRange(new object[] {
@@ -350,11 +353,12 @@
             this.cbQes1_regform.Name = "cbQes1_regform";
             this.cbQes1_regform.Size = new System.Drawing.Size(200, 24);
             this.cbQes1_regform.TabIndex = 48;
-            this.cbQes1_regform.Text = "* Please select the question";
             // 
             // cbQes2_regform
             // 
             this.cbQes2_regform.BackColor = System.Drawing.Color.DarkGray;
+            this.cbQes2_regform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbQes2_regform.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cbQes2_regform.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.cbQes2_regform.FormattingEnabled = true;
             this.cbQes2_regform.Items.AddRange(new object[] {
@@ -364,17 +368,17 @@
             this.cbQes2_regform.Name = "cbQes2_regform";
             this.cbQes2_regform.Size = new System.Drawing.Size(200, 24);
             this.cbQes2_regform.TabIndex = 49;
-            this.cbQes2_regform.Text = "* Please select the question";
             // 
             // tbAddr_regform
             // 
             this.tbAddr_regform.BackColor = System.Drawing.Color.White;
             this.tbAddr_regform.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbAddr_regform.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.tbAddr_regform.Location = new System.Drawing.Point(411, 232);
             this.tbAddr_regform.Name = "tbAddr_regform";
             this.tbAddr_regform.Size = new System.Drawing.Size(200, 65);
             this.tbAddr_regform.TabIndex = 50;
-            this.tbAddr_regform.Text = "";
+            this.tbAddr_regform.Text = "Full address";
             // 
             // panel6
             // 
@@ -477,12 +481,24 @@
             this.tbPass_regform.TabIndex = 55;
             this.tbPass_regform.Text = "password";
             // 
+            // cbOther
+            // 
+            this.cbOther.AutoSize = true;
+            this.cbOther.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.cbOther.Location = new System.Drawing.Point(548, 196);
+            this.cbOther.Name = "cbOther";
+            this.cbOther.Size = new System.Drawing.Size(63, 20);
+            this.cbOther.TabIndex = 61;
+            this.cbOther.Text = "Other";
+            this.cbOther.UseVisualStyleBackColor = true;
+            // 
             // Registrform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.ClientSize = new System.Drawing.Size(813, 733);
+            this.Controls.Add(this.cbOther);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel9);
@@ -497,14 +513,14 @@
             this.Controls.Add(this.cbQes2_regform);
             this.Controls.Add(this.cbQes1_regform);
             this.Controls.Add(this.lbExit1);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.cbFemale);
+            this.Controls.Add(this.cbMale);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.tbQes2_regform);
+            this.Controls.Add(this.tbAns2_regform);
             this.Controls.Add(this.tbAns1_regform);
             this.Controls.Add(this.btnRegistor);
             this.Controls.Add(this.tbContact_regform);
@@ -549,14 +565,14 @@
         private System.Windows.Forms.TextBox tbContact_regform;
         private System.Windows.Forms.Button btnRegistor;
         private System.Windows.Forms.TextBox tbAns1_regform;
-        private System.Windows.Forms.TextBox tbQes2_regform;
+        private System.Windows.Forms.TextBox tbAns2_regform;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox cbMale;
+        private System.Windows.Forms.CheckBox cbFemale;
         private System.Windows.Forms.Label lbExit1;
         private System.Windows.Forms.ComboBox cbQes1_regform;
         private System.Windows.Forms.ComboBox cbQes2_regform;
@@ -571,5 +587,6 @@
         private System.Windows.Forms.TextBox tbretypepass_regform;
         private System.Windows.Forms.TextBox tbUser_regform;
         private System.Windows.Forms.TextBox tbPass_regform;
+        private System.Windows.Forms.CheckBox cbOther;
     }
 }

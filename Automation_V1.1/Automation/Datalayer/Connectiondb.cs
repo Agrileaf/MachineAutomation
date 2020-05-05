@@ -9,7 +9,8 @@ namespace Automation.Datalayer
 {
     class Connectiondb
     {
-        private const String ConnString = "Data Source=ATHISHAY-PC" + "\\" + "MSSQLSERVER02;Initial Catalog=LOGIN1;Integrated Security=True";
+        private const String ConnString = "Data Source=ATHISHAY-PC" + "\\" + "MSSQLSERVER02;Initial Catalog=Automation;Integrated Security=True";
+
         public SqlConnection con = new SqlConnection(ConnString);
     }
 }

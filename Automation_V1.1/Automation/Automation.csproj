@@ -56,6 +56,12 @@
     <Compile Include="Presentationlayer\Loginform.Designer.cs">
       <DependentUpon>Loginform.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentationlayer\Mainform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentationlayer\Mainform.Designer.cs">
+      <DependentUpon>Mainform.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentationlayer\Passresetform.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Presentationlayer\Loginform.resx">
       <DependentUpon>Loginform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentationlayer\Mainform.resx">
+      <DependentUpon>Mainform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentationlayer\Passresetform.resx">
       <DependentUpon>Passresetform.cs</DependentUpon>
