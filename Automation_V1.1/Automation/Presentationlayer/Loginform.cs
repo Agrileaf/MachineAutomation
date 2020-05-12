@@ -12,11 +12,11 @@ using Automation.Businesslayer;
 
 namespace Automation.Presentationlayer
 {
-    public partial class Loginform : Form
+    public partial class LoginForm : Form
     {
 
-        Readparamdb readlogin = new Readparamdb();
-        public Loginform()
+        VariablesBll Logindata = new VariablesBll();
+        public LoginForm()
         {
             InitializeComponent();
         }
@@ -34,7 +34,7 @@ namespace Automation.Presentationlayer
         private void lbResetpswd_Click(object sender, EventArgs e)
         {
             
-            Passresetform resetpassform = new Passresetform();
+            PasswordresetForm resetpassform = new PasswordresetForm();
             resetpassform.Show();
             
         }
@@ -42,26 +42,28 @@ namespace Automation.Presentationlayer
         private void btnRegistor_Click(object sender, EventArgs e)
         {
             
-            Registrform regform = new Registrform();
+            RegistrationForm RegistrationformObject = new RegistrationForm();
             regform.Show(); 
 
         }
 
         private void btnSignin_Click(object sender, EventArgs e)
         {
-            readlogin.username = tbUsername.Text;
-            readlogin.password = tbPassword.Text;
-            Registrationbll regdll = new Registrationbll();
-            if (regdll.Checklogin(readlogin))
+            Logindata.Username = tbUsername.Text;
+            Logindata.Password = tbPassword.Text;
+            LoginfunctionsBll LoginpageObject= new LoginfunctionsBll();
+            if (LoginpageObject.CheckLogin(Logindata))
             {
                 MessageBox.Show("Login Success", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                Mainform mainform = new Mainform();
-                mainform.Show();   
+                MainForm mainform = new MainForm();
+                mainform.Show();
+                tbPassword.Text = tbUsername.Text = null;
             }
             else
             {
                 MessageBox.Show("Invalid login details", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
     }
 }

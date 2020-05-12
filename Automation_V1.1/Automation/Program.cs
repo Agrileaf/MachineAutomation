@@ -17,7 +17,7 @@ namespace Automation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Loginform());
+            Application.Run(new LoginForm());
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Automation.Presentationlayer
 {
-    public partial class Mainform : Form
+    public partial class MainForm : Form
     {
-        public Mainform()
+        public MainForm()
         {
             InitializeComponent();
         }

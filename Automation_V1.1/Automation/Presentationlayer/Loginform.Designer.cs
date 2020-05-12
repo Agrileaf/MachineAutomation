@@ -1,6 +1,6 @@
 ﻿namespace Automation.Presentationlayer
 {
-    partial class Loginform
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Loginform));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -94,7 +94,7 @@
             this.btnSignin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSignin.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignin.ForeColor = System.Drawing.Color.White;
-            this.btnSignin.Location = new System.Drawing.Point(422, 291);
+            this.btnSignin.Location = new System.Drawing.Point(420, 291);
             this.btnSignin.Name = "btnSignin";
             this.btnSignin.Size = new System.Drawing.Size(297, 34);
             this.btnSignin.TabIndex = 8;
@@ -126,7 +126,6 @@
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(234, 16);
             this.tbUsername.TabIndex = 10;
-            this.tbUsername.Text = "User Name";
             // 
             // panel1
             // 
@@ -165,10 +164,8 @@
             this.tbPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.tbPassword.Location = new System.Drawing.Point(485, 207);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.PasswordChar = '.';
             this.tbPassword.Size = new System.Drawing.Size(234, 16);
             this.tbPassword.TabIndex = 15;
-            this.tbPassword.Text = "Password";
             // 
             // lbExit1
             // 

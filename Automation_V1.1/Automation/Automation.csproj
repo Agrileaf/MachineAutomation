@@ -46,47 +46,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Businesslayer\Registrationbll.cs" />
-    <Compile Include="Datalayer\Connectiondb.cs" />
-    <Compile Include="Datalayer\Registordll.cs" />
-    <Compile Include="Datalayer\Regparamdll.cs" />
-    <Compile Include="Presentationlayer\Loginform.cs">
+    <Compile Include="BusinessLayer\LoginfunctionsBll.cs" />
+    <Compile Include="DataLayer\LoginfunctionsDll.cs" />
+    <Compile Include="BusinessLayer\VariablesBll.cs" />
+    <Compile Include="PresentationLayer\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentationlayer\Loginform.Designer.cs">
-      <DependentUpon>Loginform.cs</DependentUpon>
+    <Compile Include="PresentationLayer\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentationlayer\Mainform.cs">
+    <Compile Include="PresentationLayer\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentationlayer\Mainform.Designer.cs">
-      <DependentUpon>Mainform.cs</DependentUpon>
+    <Compile Include="PresentationLayer\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentationlayer\Passresetform.cs">
+    <Compile Include="PresentationLayer\PasswordresetForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentationlayer\Passresetform.Designer.cs">
-      <DependentUpon>Passresetform.cs</DependentUpon>
+    <Compile Include="PresentationLayer\PasswordresetForm.Designer.cs">
+      <DependentUpon>PasswordresetForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Presentationlayer\Registrform.cs">
+    <Compile Include="PresentationLayer\RegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Presentationlayer\Registrform.Designer.cs">
-      <DependentUpon>Registrform.cs</DependentUpon>
+    <Compile Include="PresentationLayer\RegistrationForm.Designer.cs">
+      <DependentUpon>RegistrationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Presentationlayer\Loginform.resx">
-      <DependentUpon>Loginform.cs</DependentUpon>
+    <EmbeddedResource Include="PresentationLayer\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentationlayer\Mainform.resx">
-      <DependentUpon>Mainform.cs</DependentUpon>
+    <EmbeddedResource Include="PresentationLayer\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentationlayer\Passresetform.resx">
-      <DependentUpon>Passresetform.cs</DependentUpon>
+    <EmbeddedResource Include="PresentationLayer\PasswordresetForm.resx">
+      <DependentUpon>PasswordresetForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Presentationlayer\Registrform.resx">
-      <DependentUpon>Registrform.cs</DependentUpon>
+    <EmbeddedResource Include="PresentationLayer\RegistrationForm.resx">
+      <DependentUpon>RegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

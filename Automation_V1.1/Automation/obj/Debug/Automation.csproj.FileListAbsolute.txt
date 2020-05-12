@@ -8,6 +8,6 @@ C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\Au
 C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\Automation_V1.1\Automation\obj\Debug\Automation.exe
 C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\Automation_V1.1\Automation\obj\Debug\Automation.pdb
 C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\Automation_V1.1\Automation\obj\Debug\Automation.Presentationlayer.Loginform.resources
-C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\Automation_V1.1\Automation\obj\Debug\Automation.Presentationlayer.Registrform.resources
-C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\Automation_V1.1\Automation\obj\Debug\Automation.Presentationlayer.Passresetform.resources
 C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\Automation_V1.1\Automation\obj\Debug\Automation.Presentationlayer.Mainform.resources
+C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\Automation_V1.1\Automation\obj\Debug\Automation.Presentationlayer.PasswordResetform.resources
+C:\Users\Athishay\Desktop\AgreeLeaf\IndustrialAutomation\IndustrialAutomation\Automation_V1.1\Automation\obj\Debug\Automation.Presentationlayer.Registrationform.resources

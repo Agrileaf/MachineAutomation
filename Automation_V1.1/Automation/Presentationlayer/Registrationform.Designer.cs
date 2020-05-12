@@ -1,6 +1,6 @@
 ﻿namespace Automation.Presentationlayer
 {
-    partial class Registrform
+    partial class RegistrationForm
     {
         /// <summary>
         /// Required designer variable.
@@ -201,7 +201,6 @@
             this.tbLname_regform.Name = "tbLname_regform";
             this.tbLname_regform.Size = new System.Drawing.Size(200, 16);
             this.tbLname_regform.TabIndex = 31;
-            this.tbLname_regform.Text = "last Name";
             // 
             // tbFname_regform
             // 
@@ -213,7 +212,6 @@
             this.tbFname_regform.Name = "tbFname_regform";
             this.tbFname_regform.Size = new System.Drawing.Size(200, 16);
             this.tbFname_regform.TabIndex = 32;
-            this.tbFname_regform.Text = "First Name";
             // 
             // tbContact_regform
             // 
@@ -225,7 +223,6 @@
             this.tbContact_regform.Name = "tbContact_regform";
             this.tbContact_regform.Size = new System.Drawing.Size(200, 16);
             this.tbContact_regform.TabIndex = 33;
-            this.tbContact_regform.Text = "+91";
             // 
             // btnRegistor
             // 
@@ -251,7 +248,6 @@
             this.tbAns1_regform.Name = "tbAns1_regform";
             this.tbAns1_regform.Size = new System.Drawing.Size(200, 16);
             this.tbAns1_regform.TabIndex = 37;
-            this.tbAns1_regform.Text = "Answer 1";
             // 
             // tbAns2_regform
             // 
@@ -263,7 +259,6 @@
             this.tbAns2_regform.Name = "tbAns2_regform";
             this.tbAns2_regform.Size = new System.Drawing.Size(200, 16);
             this.tbAns2_regform.TabIndex = 38;
-            this.tbAns2_regform.Text = "Answer 2";
             // 
             // panel1
             // 
@@ -315,6 +310,7 @@
             this.cbMale.TabIndex = 44;
             this.cbMale.Text = "Male";
             this.cbMale.UseVisualStyleBackColor = true;
+            this.cbMale.CheckedChanged += new System.EventHandler(this.cbMale_CheckedChanged);
             // 
             // cbFemale
             // 
@@ -326,6 +322,7 @@
             this.cbFemale.TabIndex = 45;
             this.cbFemale.Text = "Female";
             this.cbFemale.UseVisualStyleBackColor = true;
+            this.cbFemale.CheckedChanged += new System.EventHandler(this.cbFemale_CheckedChanged);
             // 
             // lbExit1
             // 
@@ -378,7 +375,7 @@
             this.tbAddr_regform.Name = "tbAddr_regform";
             this.tbAddr_regform.Size = new System.Drawing.Size(200, 65);
             this.tbAddr_regform.TabIndex = 50;
-            this.tbAddr_regform.Text = "Full address";
+            this.tbAddr_regform.Text = "";
             // 
             // panel6
             // 
@@ -455,7 +452,6 @@
             this.tbretypepass_regform.Name = "tbretypepass_regform";
             this.tbretypepass_regform.Size = new System.Drawing.Size(200, 16);
             this.tbretypepass_regform.TabIndex = 57;
-            this.tbretypepass_regform.Text = "retype-password";
             // 
             // tbUser_regform
             // 
@@ -467,7 +463,6 @@
             this.tbUser_regform.Name = "tbUser_regform";
             this.tbUser_regform.Size = new System.Drawing.Size(200, 16);
             this.tbUser_regform.TabIndex = 56;
-            this.tbUser_regform.Text = "User Name";
             // 
             // tbPass_regform
             // 
@@ -479,7 +474,6 @@
             this.tbPass_regform.Name = "tbPass_regform";
             this.tbPass_regform.Size = new System.Drawing.Size(200, 16);
             this.tbPass_regform.TabIndex = 55;
-            this.tbPass_regform.Text = "password";
             // 
             // cbOther
             // 
@@ -491,8 +485,9 @@
             this.cbOther.TabIndex = 61;
             this.cbOther.Text = "Other";
             this.cbOther.UseVisualStyleBackColor = true;
+            this.cbOther.CheckedChanged += new System.EventHandler(this.cbOther_CheckedChanged);
             // 
-            // Registrform
+            // Registrationform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -538,7 +533,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lbExit2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Registrform";
+            this.Name = "Registrationform";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrationform";
             this.Load += new System.EventHandler(this.Registrform_Load);
@@ -561,7 +556,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tbLname_regform;
-        private System.Windows.Forms.TextBox tbFname_regform;
         private System.Windows.Forms.TextBox tbContact_regform;
         private System.Windows.Forms.Button btnRegistor;
         private System.Windows.Forms.TextBox tbAns1_regform;
@@ -588,5 +582,6 @@
         private System.Windows.Forms.TextBox tbUser_regform;
         private System.Windows.Forms.TextBox tbPass_regform;
         private System.Windows.Forms.CheckBox cbOther;
+        protected System.Windows.Forms.TextBox tbFname_regform;
     }
 }

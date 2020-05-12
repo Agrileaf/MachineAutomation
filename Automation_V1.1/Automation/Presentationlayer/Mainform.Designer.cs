@@ -1,6 +1,6 @@
 ﻿namespace Automation.Presentationlayer
 {
-    partial class Mainform
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.

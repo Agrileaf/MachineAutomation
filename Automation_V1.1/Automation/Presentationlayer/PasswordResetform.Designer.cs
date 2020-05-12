@@ -1,6 +1,6 @@
 ﻿namespace Automation.Presentationlayer
 {
-    partial class Passresetform
+    partial class PasswordresetForm
     {
         /// <summary>
         /// Required designer variable.
@@ -122,7 +122,6 @@
             this.tbAnswer2_resetform.Name = "tbAnswer2_resetform";
             this.tbAnswer2_resetform.Size = new System.Drawing.Size(200, 16);
             this.tbAnswer2_resetform.TabIndex = 55;
-            this.tbAnswer2_resetform.Text = "Answer 2";
             // 
             // tbAnswer1_resetform
             // 
@@ -134,7 +133,6 @@
             this.tbAnswer1_resetform.Name = "tbAnswer1_resetform";
             this.tbAnswer1_resetform.Size = new System.Drawing.Size(200, 16);
             this.tbAnswer1_resetform.TabIndex = 54;
-            this.tbAnswer1_resetform.Text = "Answer 1";
             // 
             // label10
             // 
@@ -249,7 +247,6 @@
             this.tbresetpass.Name = "tbresetpass";
             this.tbresetpass.Size = new System.Drawing.Size(200, 16);
             this.tbresetpass.TabIndex = 71;
-            this.tbresetpass.Text = "retype-password";
             // 
             // tbpassword
             // 
@@ -261,7 +258,6 @@
             this.tbpassword.Name = "tbpassword";
             this.tbpassword.Size = new System.Drawing.Size(200, 16);
             this.tbpassword.TabIndex = 70;
-            this.tbpassword.Text = "password";
             // 
             // label13
             // 
@@ -303,7 +299,6 @@
             this.tbuser_resetform.Name = "tbuser_resetform";
             this.tbuser_resetform.Size = new System.Drawing.Size(200, 16);
             this.tbuser_resetform.TabIndex = 63;
-            this.tbuser_resetform.Text = "User Name";
             // 
             // lbUsername
             // 
@@ -328,7 +323,7 @@
             this.lbExit3.Text = "x";
             this.lbExit3.Click += new System.EventHandler(this.lbExit3_Click);
             // 
-            // Passresetform
+            // PasswordResetform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -352,7 +347,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Passresetform";
+            this.Name = "PasswordResetform";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Passresetform";
             this.Load += new System.EventHandler(this.Passresetform_Load);
