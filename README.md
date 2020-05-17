@@ -11,7 +11,7 @@ Areca leaf plate making machine automation
 2. Modifications in naming convention.
 3. Added stored proc functionalities.
 4. Added Access modifier for functions and classes.
-5. Usage of private,public and static functions and feilds.
+5. Usage of private,public,static functions and feilds.
 
 #Desktop Application Practice codes
 1. Includes creation of login pages.
