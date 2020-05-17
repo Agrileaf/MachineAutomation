@@ -1,0 +1,9 @@
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Businesslogiclayer\bin\Debug\netstandard2.0\Businesslogiclayer.deps.json
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Businesslogiclayer\bin\Debug\netstandard2.0\Businesslogiclayer.dll
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Businesslogiclayer\bin\Debug\netstandard2.0\Businesslogiclayer.pdb
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Businesslogiclayer\obj\Debug\netstandard2.0\Businesslogiclayer.csprojAssemblyReference.cache
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Businesslogiclayer\obj\Debug\netstandard2.0\Businesslogiclayer.csproj.CoreCompileInputs.cache
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Businesslogiclayer\obj\Debug\netstandard2.0\Businesslogiclayer.AssemblyInfoInputs.cache
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Businesslogiclayer\obj\Debug\netstandard2.0\Businesslogiclayer.AssemblyInfo.cs
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Businesslogiclayer\obj\Debug\netstandard2.0\Businesslogiclayer.dll
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Businesslogiclayer\obj\Debug\netstandard2.0\Businesslogiclayer.pdb

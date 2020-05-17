@@ -1,0 +1,5 @@
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Industrial_Automation_V1.2\obj\Debug\Industrial_Automation_V1.2.csprojAssemblyReference.cache
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Industrial_Automation_V1.2\obj\Debug\Industrial_Automation_V1._2.Form1.resources
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Industrial_Automation_V1.2\obj\Debug\Industrial_Automation_V1._2.Properties.Resources.resources
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Industrial_Automation_V1.2\obj\Debug\Industrial_Automation_V1.2.csproj.GenerateResource.cache
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Industrial_Automation_V1.2\obj\Debug\Industrial_Automation_V1.2.csproj.CoreCompileInputs.cache

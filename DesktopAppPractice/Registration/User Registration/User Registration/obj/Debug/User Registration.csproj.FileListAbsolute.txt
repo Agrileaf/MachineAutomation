@@ -1,0 +1,6 @@
+F:\Youtube Channel\Dotnet Mob\asp.net tutorial\user registration\project\User Registration\User Registration\bin\User Registration.dll.config
+F:\Youtube Channel\Dotnet Mob\asp.net tutorial\user registration\project\User Registration\User Registration\bin\User Registration.dll
+F:\Youtube Channel\Dotnet Mob\asp.net tutorial\user registration\project\User Registration\User Registration\bin\User Registration.pdb
+F:\Youtube Channel\Dotnet Mob\asp.net tutorial\user registration\project\User Registration\User Registration\obj\Debug\User Registration.csprojResolveAssemblyReference.cache
+F:\Youtube Channel\Dotnet Mob\asp.net tutorial\user registration\project\User Registration\User Registration\obj\Debug\User Registration.dll
+F:\Youtube Channel\Dotnet Mob\asp.net tutorial\user registration\project\User Registration\User Registration\obj\Debug\User Registration.pdb

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "1N+yxJZIio3t8Jbb6ZR52/aGdskxVH8aYQGczquhs7MRYN7xZrfLvwnhxR1P77RbBBeWTx+sdf3d6JX6nxCJtg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Athishay\\Desktop\\Example\\LayoutOptionsDemo\\LayoutOptionsDemo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Athishay\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Athishay\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Athishay\\.nuget\\packages\\xamarin.forms\\4.6.0.726\\xamarin.forms.4.6.0.726.nupkg.sha512"
+  ],
+  "logs": []
+}

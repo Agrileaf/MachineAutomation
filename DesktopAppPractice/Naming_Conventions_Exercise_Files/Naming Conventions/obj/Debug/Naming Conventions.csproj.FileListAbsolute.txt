@@ -1,0 +1,10 @@
+C:\Users\guru\Desktop\Naming Conventions\Naming Conventions\bin\Debug\Naming Conventions.exe.config
+C:\Users\guru\Desktop\Part 5_Naming_Conventions_Exercise_Files\Naming Conventions\bin\Debug\Naming Conventions.exe.config
+C:\Users\guru\Desktop\Part 5_Naming_Conventions_Exercise_Files\Naming Conventions\obj\Debug\Naming Conventions.csprojResolveAssemblyReference.cache
+C:\Users\guru\Desktop\Part 5_Naming_Conventions_Exercise_Files\Naming Conventions\bin\Debug\Naming Conventions.exe
+C:\Users\guru\Desktop\Part 5_Naming_Conventions_Exercise_Files\Naming Conventions\bin\Debug\Naming Conventions.pdb
+C:\Users\guru\Desktop\Part 5_Naming_Conventions_Exercise_Files\Naming Conventions\obj\Debug\Naming Conventions.exe
+C:\Users\guru\Desktop\Part 5_Naming_Conventions_Exercise_Files\Naming Conventions\obj\Debug\Naming Conventions.pdb
+C:\Users\guru\Documents\Camtasia Studio\Labs\Part 5_Naming_Conventions_Exercise_Files\Naming Conventions\bin\Debug\Naming Conventions.exe.config
+C:\Users\guru\Documents\Camtasia Studio\Labs\Part 5_Naming_Conventions_Exercise_Files\Naming Conventions\obj\Debug\Naming Conventions.exe
+C:\Users\guru\Documents\Camtasia Studio\Labs\Part 5_Naming_Conventions_Exercise_Files\Naming Conventions\obj\Debug\Naming Conventions.pdb

@@ -1,0 +1,9 @@
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Dataacceslayer\bin\Debug\netstandard2.0\Dataacceslayer.deps.json
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Dataacceslayer\bin\Debug\netstandard2.0\Dataacceslayer.dll
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Dataacceslayer\bin\Debug\netstandard2.0\Dataacceslayer.pdb
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Dataacceslayer\obj\Debug\netstandard2.0\Dataacceslayer.csprojAssemblyReference.cache
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Dataacceslayer\obj\Debug\netstandard2.0\Dataacceslayer.csproj.CoreCompileInputs.cache
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Dataacceslayer\obj\Debug\netstandard2.0\Dataacceslayer.AssemblyInfoInputs.cache
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Dataacceslayer\obj\Debug\netstandard2.0\Dataacceslayer.AssemblyInfo.cs
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Dataacceslayer\obj\Debug\netstandard2.0\Dataacceslayer.dll
+C:\Users\Athishay\source\repos\Industrial_Automation_V1.2\Dataacceslayer\obj\Debug\netstandard2.0\Dataacceslayer.pdb

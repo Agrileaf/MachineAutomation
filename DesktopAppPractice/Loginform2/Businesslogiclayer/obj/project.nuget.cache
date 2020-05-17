@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "9hQgKXv+YKSvSMGQYmdQNG4Vywc7zDF5d0SKrnkMDj3dmxwwZdl8Z3vvN8iw2RV9KdGJIz5+fDn+LADEVdqltw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Athishay\\source\\repos\\Industrial_Automation_V1.2\\Businesslogiclayer\\Businesslogiclayer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Athishay\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Athishay\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
