@@ -13,9 +13,8 @@ namespace Automation.Datalayer
 {
     class LoginfunctionsDll
     {
-        LoginfunctionsBll regpagebll = new LoginfunctionsBll();
 
-        public SqlConnection ConnectDatabase = new SqlConnection("Data Source=ATHISHAY-PC" + "\\" + "MSSQLSERVER02;Initial Catalog=Automation;Integrated Security=True");
+       private static SqlConnection ConnectDatabase = new SqlConnection("Data Source=ATHISHAY-PC" + "\\" + "MSSQLSERVER02;Initial Catalog=Automation;Integrated Security=True");
         
         public void StoreRegistrationData(VariablesBll resgistrationformFeild)
         {
@@ -66,7 +65,6 @@ namespace Automation.Datalayer
             SqlCommand Sqlcmd = new SqlCommand("UserLogin", ConnectDatabase);
             Sqlcmd.CommandType = CommandType.StoredProcedure;
             Sqlcmd.Parameters.AddWithValue("@Functionality", "VALIDATELOGIN");
-            loginData.Password = regpagebll.EncodePasswordToBase64(loginData.Password);
             Sqlcmd.Parameters.AddWithValue("@Firstname", "");
             Sqlcmd.Parameters.AddWithValue("@Lastname", "");
             Sqlcmd.Parameters.AddWithValue("@Contact", "");
@@ -86,7 +84,7 @@ namespace Automation.Datalayer
              
         }
 
-        public int ValidateSecuriryquestion(VariablesBll resetpasswordData)
+        public int ValidateSecurityquestion(VariablesBll resetpasswordData)
         {
             ConnectDatabase.Open();
             SqlCommand Sqlcmd = new SqlCommand("UserLogin", ConnectDatabase);
@@ -114,7 +112,6 @@ namespace Automation.Datalayer
             SqlCommand Sqlcmd = new SqlCommand("UserLogin", ConnectDatabase);
             Sqlcmd.CommandType = CommandType.StoredProcedure;
             Sqlcmd.Parameters.AddWithValue("@Functionality", "UPDATEPASSWORD");
-            loginParam.Password = regpagebll.EncodePasswordToBase64(loginParam.Password);
             Sqlcmd.Parameters.AddWithValue("@Firstname", "");
             Sqlcmd.Parameters.AddWithValue("@Lastname", "");
             Sqlcmd.Parameters.AddWithValue("@Contact", "");
@@ -127,6 +124,7 @@ namespace Automation.Datalayer
             Sqlcmd.Parameters.AddWithValue("@Username", loginParam.Username);
             Sqlcmd.Parameters.AddWithValue("@Password", loginParam.Password);
             Sqlcmd.ExecuteNonQuery();
+            
             ConnectDatabase.Close();
         }
     }

@@ -9,20 +9,19 @@ using Automation.Presentationlayer;
 
 namespace Automation.Businesslayer
 {
-    class LoginfunctionsBll
+    public class LoginfunctionsBll
     {
-		public bool GetRegistrationdata(VariablesBll Registrationdata)
+        LoginfunctionsDll LoginFunctions = new LoginfunctionsDll();
+        public bool GetRegistrationdata(VariablesBll Registrationdata)
 		{
-            LoginfunctionsDll regpagedll = new LoginfunctionsDll();
-
             bool status = false;
 
             if (Registrationdata.GendertypeMale == false && Registrationdata.GendertypeFemale == false && Registrationdata.GendertypeOthers == false)
             {
                 MessageBox.Show("Select Gender", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (Registrationdata.FirstName == null || Registrationdata.LastName == null || Registrationdata.Contact == null || Registrationdata.UserAddress == null ||
-                Registrationdata.Answer1 == null || Registrationdata.Answer2 == null || Registrationdata.Username == null || Registrationdata.Password == null)
+            else if (Registrationdata.FirstName == string.Empty || Registrationdata.LastName == string.Empty || Registrationdata.Contact == string.Empty || Registrationdata.UserAddress == string.Empty ||
+                Registrationdata.Answer1 == string.Empty || Registrationdata.Answer2 == string.Empty || Registrationdata.Username == string.Empty || Registrationdata.Password == string.Empty)
             {
                 MessageBox.Show("Fill all feilds", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -34,7 +33,7 @@ namespace Automation.Businesslayer
             {
                 MessageBox.Show("retype password should be same", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (regpagedll.ValidateUsername(Registrationdata.Username)==1)
+            else if (LoginFunctions.ValidateUsername(Registrationdata.Username)==1)
             {
                 MessageBox.Show("User Exists", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -53,8 +52,8 @@ namespace Automation.Businesslayer
                     Registrationdata.Gender = "Other";
                 }
                 Registrationdata.Password = EncodePasswordToBase64(Registrationdata.Password);
-               
-                regpagedll.StoreRegistrationData(Registrationdata);
+
+                LoginFunctions.StoreRegistrationData(Registrationdata);
                 MessageBox.Show("Registration Success", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 RegistrationForm regform = new RegistrationForm();
                 status = true;
@@ -64,8 +63,8 @@ namespace Automation.Businesslayer
 
         public bool CheckLogin(VariablesBll Loginparam)
         {
-            LoginfunctionsDll regpagedll = new LoginfunctionsDll();
-            if (regpagedll.ValidateLogin(Loginparam) == 1)
+            Loginparam.Password = EncodePasswordToBase64(Loginparam.Password);
+            if (LoginFunctions.ValidateLogin(Loginparam) == 1)
                 return true;
             else
                 return false;
@@ -74,7 +73,7 @@ namespace Automation.Businesslayer
         public bool ValidateresetPassword(VariablesBll Resetparam)
         {
             bool Stat=false;
-            LoginfunctionsDll regpagedll = new LoginfunctionsDll();
+            
             if (Resetparam.Username == null && Resetparam.Answer1 == null && Resetparam.Answer2 == null)
             {
                 MessageBox.Show("Fill all feilds", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -83,13 +82,13 @@ namespace Automation.Businesslayer
             {
                 MessageBox.Show("Select Question", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (regpagedll.ValidateUsername(Resetparam.Username) < 1)
+            else if (LoginFunctions.ValidateUsername(Resetparam.Username) < 1)
             {
                 MessageBox.Show("User not found", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                if (regpagedll.ValidateSecuriryquestion(Resetparam) == 1)
+                if (LoginFunctions.ValidateSecurityquestion(Resetparam) == 1)
                 {
                     Stat = true;
                     MessageBox.Show("Validation Success", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -105,29 +104,29 @@ namespace Automation.Businesslayer
 
         public void SavePassword(VariablesBll param)
         {
-            LoginfunctionsDll regpagedll = new LoginfunctionsDll();
             param.Password = EncodePasswordToBase64(param.Password);
-            regpagedll.UpdatePassword(param);
+            LoginFunctions.UpdatePassword(param);
             MessageBox.Show("Save Success", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
-        public string EncodePasswordToBase64(string password)
+        // use private to access function, witin this class only
+        private static string EncodePasswordToBase64(string password)
         {
-            // try
-            // {
-            //      byte[] encData_byte = new byte[password.Length];
-            //      encData_byte = System.Text.Encoding.UTF8.GetBytes(password);
-            //      string encodedData = Convert.ToBase64String(encData_byte);
-            //      return encodedData;
-            // }
-            // catch (Exception ex)
-            //   {
-            //      throw new Exception("Error in base64Encode" + ex.Message);
-            //   }
-            return password;
-        } //this function Convert to Decord your Password
+             try
+             {
+                  byte[] encData_byte = new byte[password.Length];
+                  encData_byte = System.Text.Encoding.UTF8.GetBytes(password);
+                  string encodedData = Convert.ToBase64String(encData_byte);
+                 return encodedData;
+             }
+             catch (Exception ex)
+               {
+                  throw new Exception("Error in base64Encode" + ex.Message);
+               }
+            
+        } 
 
-        public string DecodeFrom64(string encodedData)
+        private static string DecodeFrom64(string encodedData)
         {
             System.Text.UTF8Encoding encoder = new System.Text.UTF8Encoding();
             System.Text.Decoder utf8Decode = encoder.GetDecoder();

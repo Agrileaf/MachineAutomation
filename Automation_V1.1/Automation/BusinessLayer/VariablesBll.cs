@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Automation.Datalayer
 {
-    class VariablesBll
+    public class VariablesBll
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

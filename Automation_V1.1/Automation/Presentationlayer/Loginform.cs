@@ -43,7 +43,7 @@ namespace Automation.Presentationlayer
         {
             
             RegistrationForm RegistrationformObject = new RegistrationForm();
-            regform.Show(); 
+            RegistrationformObject.Show(); 
 
         }
 
@@ -55,8 +55,8 @@ namespace Automation.Presentationlayer
             if (LoginpageObject.CheckLogin(Logindata))
             {
                 MessageBox.Show("Login Success", "", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                MainForm mainform = new MainForm();
-                mainform.Show();
+                MainForm MainformObject = new MainForm();
+                MainformObject.Show();
                 tbPassword.Text = tbUsername.Text = null;
             }
             else

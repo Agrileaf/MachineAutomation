@@ -29,8 +29,8 @@ namespace Automation.Presentationlayer
             Passwordresetvariable.Answer1 =tbAnswer1_resetform.Text;
             Passwordresetvariable.Answer2 =tbAnswer2_resetform.Text;
             Passwordresetvariable.Username =tbuser_resetform.Text;
-            LoginfunctionsBll registrationdll = new LoginfunctionsBll();
-            if (registrationdll.ValidateresetPassword(Passwordresetvariable))
+            LoginfunctionsBll registrationpageObject = new LoginfunctionsBll();
+            if (registrationpageObject.ValidateresetPassword(Passwordresetvariable))
             {
                 pnlResetpass.Visible = true;
             }
