@@ -9,6 +9,6 @@ Areca leaf plate making machine automation
 5. Usage of private,pulic and static functions and feilds.
 
 #Desktop Application Practice codes
-1. Includes cleation of login pages.
-2. Implementation oops concept with multiple project examples.
+1. Includes creation of login pages.
+2. Implementation OOP concept with multiple project examples.
 
