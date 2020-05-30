@@ -1,1 +1,2 @@
-Manual_Mode.c:21:6:Run_ManualMode	8	static
+Manual_Mode.c:22:6:Run_ManualMode	16	static
+Manual_Mode.c:35:6:Start_Manual_Operation	16	static

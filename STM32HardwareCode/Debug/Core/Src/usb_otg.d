@@ -32,7 +32,9 @@ Core/Src/usb_otg.o: ../Core/Src/usb_otg.c ../Core/Inc/usb_otg.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pcd.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h \
- ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pcd_ex.h
+ ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pcd_ex.h \
+ ../Core/Inc/System_variables.h ../Core/Inc/Automatic_Mode.h \
+ ../Core/Inc/Manual_Mode.h
 
 ../Core/Inc/usb_otg.h:
 
@@ -105,3 +107,9 @@ Core/Src/usb_otg.o: ../Core/Src/usb_otg.c ../Core/Inc/usb_otg.h \
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h:
 
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pcd_ex.h:
+
+../Core/Inc/System_variables.h:
+
+../Core/Inc/Automatic_Mode.h:
+
+../Core/Inc/Manual_Mode.h:

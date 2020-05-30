@@ -33,7 +33,9 @@ Core/Src/Manual_Mode.o: ../Core/Src/Manual_Mode.c ../Core/Inc/main.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pcd.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pcd_ex.h \
- ../Core/Inc/gpio.h ../Core/Inc/main.h
+ ../Core/Inc/System_variables.h ../Core/Inc/main.h \
+ ../Core/Inc/Automatic_Mode.h ../Core/Inc/Manual_Mode.h \
+ ../Core/Inc/gpio.h ../Core/Inc/Manual_Mode.h
 
 ../Core/Inc/main.h:
 
@@ -105,6 +107,14 @@ Core/Src/Manual_Mode.o: ../Core/Src/Manual_Mode.c ../Core/Inc/main.h \
 
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pcd_ex.h:
 
-../Core/Inc/gpio.h:
+../Core/Inc/System_variables.h:
 
 ../Core/Inc/main.h:
+
+../Core/Inc/Automatic_Mode.h:
+
+../Core/Inc/Manual_Mode.h:
+
+../Core/Inc/gpio.h:
+
+../Core/Inc/Manual_Mode.h:

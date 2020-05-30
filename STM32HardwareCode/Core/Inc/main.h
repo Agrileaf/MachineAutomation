@@ -33,6 +33,9 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "stdbool.h"
+#include "System_variables.h"
+#include "Automatic_Mode.h"
+#include "Manual_Mode.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -47,18 +50,6 @@ extern "C" {
 
 /* Exported macro ------------------------------------------------------------*/
 /* USER CODE BEGIN EM */
-typedef enum{
-  AUTOMATIC=1,
-  MANUAL,
-  EMERGENCY_STOP
-}Mode_e;
-
-
-
-typedef struct{
-  uint8_t Pedal_no;
-  bool status;
-}Pedal_s;
 
 
 /* USER CODE END EM */
@@ -67,9 +58,8 @@ typedef struct{
 void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
-void Run_AutomaticMode(void);
-void Run_ManualMode(void);
-void Stop_Machine(void);
+
+void Device_init(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
@@ -95,9 +85,6 @@ void Stop_Machine(void);
 #define AUTOMATIC_MODE_Pin GPIO_PIN_14
 #define AUTOMATIC_MODE_GPIO_Port GPIOF
 #define AUTOMATIC_MODE_EXTI_IRQn EXTI15_10_IRQn
-#define MANUAL_MODE_Pin GPIO_PIN_15
-#define MANUAL_MODE_GPIO_Port GPIOF
-#define MANUAL_MODE_EXTI_IRQn EXTI15_10_IRQn
 #define ALARM_Pin GPIO_PIN_0
 #define ALARM_GPIO_Port GPIOG
 #define MOTOR_1_Pin GPIO_PIN_7
@@ -132,10 +119,10 @@ void Stop_Machine(void);
 #define PEDAL_E2_GPIO_Port GPIOD
 #define PEDAL_E1_Pin GPIO_PIN_13
 #define PEDAL_E1_GPIO_Port GPIOD
-#define PEDAL_D2_Pin GPIO_PIN_3
-#define PEDAL_D2_GPIO_Port GPIOG
 #define PEDAL_D1_Pin GPIO_PIN_4
 #define PEDAL_D1_GPIO_Port GPIOG
+#define PEDAL_D2_Pin GPIO_PIN_5
+#define PEDAL_D2_GPIO_Port GPIOG
 #define USB_PowerSwitchOn_Pin GPIO_PIN_6
 #define USB_PowerSwitchOn_GPIO_Port GPIOG
 #define USB_OverCurrent_Pin GPIO_PIN_7

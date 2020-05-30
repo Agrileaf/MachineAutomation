@@ -15,6 +15,6 @@ stm32f7xx_it.c:264:6:TIM2_IRQHandler	8	static
 stm32f7xx_it.c:278:6:TIM3_IRQHandler	8	static
 stm32f7xx_it.c:292:6:TIM4_IRQHandler	8	static
 stm32f7xx_it.c:306:6:EXTI15_10_IRQHandler	8	static
-stm32f7xx_it.c:322:6:TIM5_IRQHandler	8	static
-stm32f7xx_it.c:336:6:TIM6_DAC_IRQHandler	8	static
-stm32f7xx_it.c:348:6:HAL_GPIO_EXTI_Callback	16	static
+stm32f7xx_it.c:321:6:TIM5_IRQHandler	8	static
+stm32f7xx_it.c:335:6:TIM6_DAC_IRQHandler	8	static
+stm32f7xx_it.c:347:6:HAL_GPIO_EXTI_Callback	16	static

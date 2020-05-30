@@ -1,3 +1,9 @@
-Automatic_Mode.c:45:6:Run_AutomaticMode	8	static
-Automatic_Mode.c:428:6:HAL_TIM_PeriodElapsedCallback	16	static
-Automatic_Mode.c:530:6:Stop_Machine	8	static
+Automatic_Mode.c:36:6:Run_AutomaticMode	16	static
+Automatic_Mode.c:52:6:Start_Machine	16	static
+Automatic_Mode.c:134:6:HAL_TIM_PeriodElapsedCallback	16	static
+Automatic_Mode.c:282:6:Stop_Machine	8	static
+Automatic_Mode.c:301:10:Get_Cylinder_Position	24	static
+Automatic_Mode.c:310:6:Set_Cylinder_Position	16	static
+Automatic_Mode.c:318:10:Get_Cylinder_Position_hold_Duration	24	static
+Automatic_Mode.c:344:6:Start_APBx_Timer_Interrupt	16	static
+Automatic_Mode.c:386:6:Stop_APBx_Timer_Interrupt	16	static

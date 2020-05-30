@@ -1,0 +1,2 @@
+Eeprom.c:25:6:Write_Byte_toFlash	24	static
+Eeprom.c:34:10:Read_Byte_fromFlash	24	static

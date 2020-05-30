@@ -5,423 +5,129 @@
  *      Author: Athishay
  */
 /* USER CODE BEGIN Includes */
+
 #include "main.h"
 #include "gpio.h"
 #include "tim.h"
+#include "Automatic_Mode.h"
+
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN PFP */
-Pedal_s Pedal_data;
-bool Unit_A1=false;
-bool Unit_B1=false;
-bool Unit_C1=false;
-bool Unit_D1=false;
-bool Unit_E1=false;
-bool Unit_F1=false;
 
-bool Step_A1=false,Step_B1=false,Step_C1=false,Step_D1=false,Step_E1=false,Step_F1=false;
-bool Step_A2=false,Step_B2=false,Step_C2=false,Step_D2=false,Step_E2=false,Step_F2=false;
-bool Step_A3=false,Step_B3=false,Step_C3=false,Step_D3=false,Step_E3=false,Step_F3=false;
-bool Step_A4=false,Step_B4=false,Step_C4=false,Step_D4=false,Step_E4=false,Step_F4=false;
-bool Step_A5=false,Step_B5=false,Step_C5=false,Step_D5=false,Step_E5=false,Step_F5=false;
-bool Step_A6=false,Step_B6=false,Step_C6=false,Step_D6=false,Step_E6=false,Step_F6=false;
 
-#define APB1_Clock 108000000 // Mhz
-#define APB1_timerClock 108000000 // Mhz
-#define APB1_Prescalar 108000000/1000
-#define Down_time 5000 // Milli seconds
-#define Up_time 5000 //Milli seconds
-int Stop_time=900; // milli seconds
+#define OPERATION_1 0
+#define OPERATION_2 1
 
-uint8_t APB1ARR_DownMovement=0;
-uint8_t APB1ARR_UpMovement =0;
-uint8_t APB1ARR_Stop=0;
+Machine_info Machine_information={0};
+uint32_t Cylinder_position[END_STATION]={0};
+uint32_t Timer_counter[END_STATION]={0};
+uint32_t Timer_timeout[END_STATION]={0};
+extern uint8_t running_Automatic;
+
+
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+
 void Run_AutomaticMode(void)
 {
+	/* Automatic Mode for Unit 1 starts here */
 
-	APB1ARR_DownMovement=(APB1_Prescalar*Down_time*2)/(APB1_Clock);
-	APB1ARR_UpMovement =(APB1_Prescalar*Up_time*2)/(APB1_Clock);
-	APB1ARR_Stop=(APB1_Prescalar*Stop_time*2)/(APB1_Clock);
-/*
-	// Automatic Mode for Unit 1 starts here
-
-	if(HAL_GPIO_ReadPin(PEDAL_A1_GPIO_Port, PEDAL_A1_Pin) && !HAL_GPIO_ReadPin(PEDAL_A2_GPIO_Port, PEDAL_A2_Pin) && Unit_A1==false)
+	for(int Id=0;Id<6;Id++)
 	{
-		HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_SET);
-		Unit_A1=true;
-		Step_A1=true;
-		TIM1->PSC = APB1_Prescalar;
-		TIM1->ARR = APB1ARR_DownMovement;
-		HAL_TIM_Base_Start_IT(&htim1);
-	}
-	else if(Step_A2)
-	{
-		HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_RESET);
-		HAL_TIM_Base_Stop_IT(&htim1);
-		Step_A2=false;
-		Step_A3=true;
-		TIM1->PSC = APB1_Prescalar;
-		TIM1->ARR = APB1ARR_Stop;
-		HAL_TIM_Base_Start_IT(&htim1);
-	}
-	else if(Step_A4 )
-	{
-		HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_SET);
-		HAL_TIM_Base_Stop_IT(&htim1);
-		TIM1->PSC = APB1_Prescalar;
-		TIM1->ARR = APB1ARR_UpMovement;
-		HAL_TIM_Base_Start_IT(&htim1);
-		Step_A5=true;
-	}
-	else if(Step_A6)
-	{
-		HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(LD3_GPIO_Port, LD3_Pin, GPIO_PIN_RESET);
-		HAL_TIM_Base_Stop_IT(&htim1);
-		Unit_A1=false;
-	    Step_A1=false;
-	    Step_A2=false;
-	    Step_A3=false;
-	    Step_A4=false;
-	    Step_A5=false;
-	    Step_A6=false;
-	}
-
-	// Automatic Mode for Unit 1 Ends here
-*/
-	// Automatic Mode for Unit 1 starts here
-
-	if(HAL_GPIO_ReadPin(PEDAL_A1_GPIO_Port, PEDAL_A1_Pin) && !HAL_GPIO_ReadPin(PEDAL_A2_GPIO_Port, PEDAL_A2_Pin) && Unit_A1==false)
-	{
-		HAL_GPIO_WritePin(CYLINDER_1R_GPIO_Port, CYLINDER_1R_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(CYLINDER_1F_GPIO_Port, CYLINDER_1F_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(MOTOR_1_GPIO_Port, MOTOR_1_Pin, GPIO_PIN_SET);
-		Unit_A1=true;
-		Step_A1=true;
-		TIM1->PSC = APB1_Prescalar;
-		TIM1->ARR = APB1ARR_DownMovement;
-		HAL_TIM_Base_Start_IT(&htim1);
-	}
-	else if(Step_A2)
-	{
-		HAL_GPIO_WritePin(CYLINDER_1R_GPIO_Port, CYLINDER_1R_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(CYLINDER_1F_GPIO_Port, CYLINDER_1F_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(MOTOR_1_GPIO_Port, MOTOR_1_Pin, GPIO_PIN_RESET);
-		HAL_TIM_Base_Stop_IT(&htim1);
-		Step_A2=false;
-		Step_A3=true;
-		TIM1->PSC = APB1_Prescalar;
-		TIM1->ARR = APB1ARR_Stop;
-		HAL_TIM_Base_Start_IT(&htim1);
-	}
-	else if(Step_A4 )
-	{
-		HAL_GPIO_WritePin(CYLINDER_1R_GPIO_Port, CYLINDER_1R_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(CYLINDER_1F_GPIO_Port, CYLINDER_1F_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(MOTOR_1_GPIO_Port, MOTOR_1_Pin, GPIO_PIN_SET);
-		HAL_TIM_Base_Stop_IT(&htim1);
-		TIM1->PSC = APB1_Prescalar;
-		TIM1->ARR = APB1ARR_UpMovement;
-		HAL_TIM_Base_Start_IT(&htim1);
-		Step_A5=true;
-	}
-	else if(Step_A6)
-	{
-		HAL_GPIO_WritePin(CYLINDER_1R_GPIO_Port, CYLINDER_1R_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(CYLINDER_1F_GPIO_Port, CYLINDER_1F_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(MOTOR_1_GPIO_Port, MOTOR_1_Pin, GPIO_PIN_RESET);
-		HAL_TIM_Base_Stop_IT(&htim1);
-		Unit_A1=false;
-	    Step_A1=false;
-	    Step_A2=false;
-	    Step_A3=false;
-	    Step_A4=false;
-	    Step_A5=false;
-	    Step_A6=false;
-	}
-
-	// Automatic Mode for Unit 1 Ends here
-
-	// Automatic Mode for Unit 2 starts here
-
-	if(HAL_GPIO_ReadPin(PEDAL_B1_GPIO_Port, PEDAL_B1_Pin) && !HAL_GPIO_ReadPin(PEDAL_B2_GPIO_Port, PEDAL_B2_Pin) && Unit_B1==false)
-	{
-		HAL_GPIO_WritePin(CYLINDER_2R_GPIO_Port, CYLINDER_2R_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(CYLINDER_2F_GPIO_Port, CYLINDER_2F_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(MOTOR_1_GPIO_Port, MOTOR_1_Pin, GPIO_PIN_SET);
-		Unit_B1=true;
-		Step_B1=true;
-		TIM2->PSC = APB1_Prescalar;
-		TIM2->ARR = APB1ARR_DownMovement;
-		HAL_TIM_Base_Start_IT(&htim2);
-	}
-	else if(Step_B2)
-	{
-		HAL_GPIO_WritePin(CYLINDER_2R_GPIO_Port, CYLINDER_2R_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(CYLINDER_2F_GPIO_Port, CYLINDER_2F_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(MOTOR_1_GPIO_Port, MOTOR_1_Pin, GPIO_PIN_RESET);
-		HAL_TIM_Base_Stop_IT(&htim2);
-		Step_B2=false;
-		Step_B3=true;
-		TIM2->PSC = APB1_Prescalar;
-		TIM2->ARR = APB1ARR_Stop;
-		HAL_TIM_Base_Start_IT(&htim2);
-	}
-	else if(Step_B4 )
-	{
-		HAL_GPIO_WritePin(CYLINDER_2R_GPIO_Port, CYLINDER_2R_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(CYLINDER_2F_GPIO_Port, CYLINDER_2F_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(MOTOR_1_GPIO_Port, MOTOR_1_Pin, GPIO_PIN_SET);
-		HAL_TIM_Base_Stop_IT(&htim2);
-		TIM2->PSC = APB1_Prescalar;
-		TIM2->ARR = APB1ARR_UpMovement;
-		HAL_TIM_Base_Start_IT(&htim2);
-		Step_B5=true;
-	}
-	else if(Step_B6)
-	{
-		HAL_GPIO_WritePin(CYLINDER_2R_GPIO_Port, CYLINDER_2R_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(CYLINDER_2F_GPIO_Port, CYLINDER_2F_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(MOTOR_1_GPIO_Port, MOTOR_1_Pin, GPIO_PIN_RESET);
-		HAL_TIM_Base_Stop_IT(&htim2);
-		Unit_B1=false;
-	    Step_B1=false;
-	    Step_B2=false;
-	    Step_B3=false;
-	    Step_B4=false;
-	    Step_B5=false;
-	    Step_B6=false;
-	}
-
-	// Automatic Mode for Unit 2 Ends here
-
-	// Automatic Mode for Unit 3 starts here
-
-	if(HAL_GPIO_ReadPin(PEDAL_C1_GPIO_Port, PEDAL_C1_Pin) && !HAL_GPIO_ReadPin(PEDAL_C2_GPIO_Port, PEDAL_C2_Pin) && Unit_C1==false)
-	{
-		HAL_GPIO_WritePin(CYLINDER_3R_GPIO_Port, CYLINDER_3R_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(CYLINDER_3F_GPIO_Port, CYLINDER_3F_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(MOTOR_1_GPIO_Port, MOTOR_1_Pin, GPIO_PIN_SET);
-		Unit_C1=true;
-		Step_C1=true;
-		TIM3->PSC = APB1_Prescalar;
-		TIM3->ARR = APB1ARR_DownMovement;
-		HAL_TIM_Base_Start_IT(&htim3);
-	}
-	else if(Step_C2)
-	{
-		HAL_GPIO_WritePin(CYLINDER_3R_GPIO_Port, CYLINDER_3R_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(CYLINDER_3F_GPIO_Port, CYLINDER_3F_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(MOTOR_1_GPIO_Port, MOTOR_1_Pin, GPIO_PIN_RESET);
-		HAL_TIM_Base_Stop_IT(&htim3);
-		Step_C2=false;
-		Step_C3=true;
-		TIM3->PSC = APB1_Prescalar;
-		TIM3->ARR = APB1ARR_Stop;
-		HAL_TIM_Base_Start_IT(&htim3);
-	}
-	else if(Step_C4 )
-	{
-		HAL_GPIO_WritePin(CYLINDER_3R_GPIO_Port, CYLINDER_3R_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(CYLINDER_3F_GPIO_Port, CYLINDER_3F_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(MOTOR_1_GPIO_Port, MOTOR_1_Pin, GPIO_PIN_SET);
-		HAL_TIM_Base_Stop_IT(&htim3);
-		TIM3->PSC = APB1_Prescalar;
-		TIM3->ARR = APB1ARR_UpMovement;
-		HAL_TIM_Base_Start_IT(&htim3);
-		Step_C5=true;
-	}
-	else if(Step_C6)
-	{
-		HAL_GPIO_WritePin(CYLINDER_3R_GPIO_Port, CYLINDER_3R_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(CYLINDER_3F_GPIO_Port, CYLINDER_3F_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(MOTOR_1_GPIO_Port, MOTOR_1_Pin, GPIO_PIN_RESET);
-		HAL_TIM_Base_Stop_IT(&htim3);
-		Unit_C1=false;
-	    Step_C1=false;
-	    Step_C2=false;
-	    Step_C3=false;
-	    Step_C4=false;
-	    Step_C5=false;
-	    Step_C6=false;
-	}
-
-	// Automatic Mode for Unit 3 Ends here
-
-	// Automatic Mode for Unit 4 starts here
-
-		if(HAL_GPIO_ReadPin(PEDAL_D1_GPIO_Port, PEDAL_D1_Pin) && !HAL_GPIO_ReadPin(PEDAL_D2_GPIO_Port, PEDAL_D2_Pin) && Unit_D1==false)
+		if(Cylinder_position[Id] != SET_OFF)
 		{
-			HAL_GPIO_WritePin(CYLINDER_4R_GPIO_Port, CYLINDER_4R_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(CYLINDER_4F_GPIO_Port, CYLINDER_4F_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(MOTOR_2_GPIO_Port, MOTOR_2_Pin, GPIO_PIN_SET);
-			Unit_D1=true;
-			Step_D1=true;
-			TIM4->PSC = APB1_Prescalar;
-			TIM4->ARR = APB1ARR_DownMovement;
-			HAL_TIM_Base_Start_IT(&htim4);
+			Start_Machine(Id);
+			//running_Automatic=AUTOMATIC;
 		}
-		else if(Step_D2)
-		{
-			HAL_GPIO_WritePin(CYLINDER_4R_GPIO_Port, CYLINDER_4R_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(CYLINDER_4F_GPIO_Port, CYLINDER_4F_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(MOTOR_2_GPIO_Port, MOTOR_2_Pin, GPIO_PIN_RESET);
-			HAL_TIM_Base_Stop_IT(&htim4);
-			Step_D2=false;
-			Step_D3=true;
-			TIM4->PSC = APB1_Prescalar;
-			TIM4->ARR = APB1ARR_Stop;
-			HAL_TIM_Base_Start_IT(&htim4);
-		}
-		else if(Step_D4 )
-		{
-			HAL_GPIO_WritePin(CYLINDER_4R_GPIO_Port, CYLINDER_4R_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(CYLINDER_4F_GPIO_Port, CYLINDER_4F_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(MOTOR_2_GPIO_Port, MOTOR_2_Pin, GPIO_PIN_SET);
-			HAL_TIM_Base_Stop_IT(&htim4);
-			TIM4->PSC = APB1_Prescalar;
-			TIM4->ARR = APB1ARR_UpMovement;
-			HAL_TIM_Base_Start_IT(&htim4);
-			Step_D5=true;
-		}
-		else if(Step_D6)
-		{
-			HAL_GPIO_WritePin(CYLINDER_4R_GPIO_Port, CYLINDER_4R_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(CYLINDER_4F_GPIO_Port, CYLINDER_4F_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(MOTOR_2_GPIO_Port, MOTOR_2_Pin, GPIO_PIN_RESET);
-			HAL_TIM_Base_Stop_IT(&htim4);
-			Unit_D1=false;
-		    Step_D1=false;
-		    Step_D2=false;
-		    Step_D3=false;
-		    Step_D4=false;
-		    Step_D5=false;
-		    Step_D6=false;
-		}
-
-		// Automatic Mode for Unit 4 Ends here
-
-		// Automatic Mode for Unit 5 starts here
-
-		if(HAL_GPIO_ReadPin(PEDAL_E1_GPIO_Port, PEDAL_E1_Pin) && !HAL_GPIO_ReadPin(PEDAL_E2_GPIO_Port, PEDAL_E2_Pin) && Unit_E1==false)
-		{
-			HAL_GPIO_WritePin(CYLINDER_5R_GPIO_Port, CYLINDER_5R_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(CYLINDER_5F_GPIO_Port, CYLINDER_5F_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(MOTOR_2_GPIO_Port, MOTOR_2_Pin, GPIO_PIN_SET);
-			Unit_E1=true;
-			Step_E1=true;
-			TIM5->PSC = APB1_Prescalar;
-			TIM5->ARR = APB1ARR_DownMovement;
-			HAL_TIM_Base_Start_IT(&htim5);
-		}
-		else if(Step_E2)
-		{
-			HAL_GPIO_WritePin(CYLINDER_5R_GPIO_Port, CYLINDER_5R_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(CYLINDER_5F_GPIO_Port, CYLINDER_5F_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(MOTOR_2_GPIO_Port, MOTOR_2_Pin, GPIO_PIN_RESET);
-			HAL_TIM_Base_Stop_IT(&htim5);
-			Step_E2=false;
-			Step_E3=true;
-			TIM5->PSC = APB1_Prescalar;
-			TIM5->ARR = APB1ARR_Stop;
-			HAL_TIM_Base_Start_IT(&htim5);
-		}
-		else if(Step_E4 )
-		{
-			HAL_GPIO_WritePin(CYLINDER_5R_GPIO_Port, CYLINDER_5R_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(CYLINDER_5F_GPIO_Port, CYLINDER_5F_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(MOTOR_2_GPIO_Port, MOTOR_2_Pin, GPIO_PIN_SET);
-			HAL_TIM_Base_Stop_IT(&htim5);
-			TIM5->PSC = APB1_Prescalar;
-			TIM5->ARR = APB1ARR_UpMovement;
-			HAL_TIM_Base_Start_IT(&htim5);
-			Step_E5=true;
-		}
-		else if(Step_E6)
-		{
-			HAL_GPIO_WritePin(CYLINDER_5R_GPIO_Port, CYLINDER_5R_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(CYLINDER_5F_GPIO_Port, CYLINDER_5F_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(MOTOR_2_GPIO_Port, MOTOR_2_Pin, GPIO_PIN_RESET);
-			HAL_TIM_Base_Stop_IT(&htim5);
-			Unit_E1=false;
-			Step_E1=false;
-			Step_E2=false;
-			Step_E3=false;
-			Step_E4=false;
-			Step_E5=false;
-			Step_E6=false;
-		}
-
-		// Automatic Mode for Unit 5 Ends here
-
-		// Automatic Mode for Unit 6 starts here
-
-		if(HAL_GPIO_ReadPin(PEDAL_F1_GPIO_Port, PEDAL_F1_Pin) && !HAL_GPIO_ReadPin(PEDAL_F2_GPIO_Port, PEDAL_F2_Pin) && Unit_F1==false)
-		{
-			HAL_GPIO_WritePin(CYLINDER_6R_GPIO_Port, CYLINDER_6R_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(CYLINDER_6F_GPIO_Port, CYLINDER_6F_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(MOTOR_2_GPIO_Port, MOTOR_2_Pin, GPIO_PIN_SET);
-			Unit_F1=true;
-			Step_F1=true;
-			TIM6->PSC = APB1_Prescalar;
-			TIM6->ARR = APB1ARR_DownMovement;
-			HAL_TIM_Base_Start_IT(&htim6);
-		}
-		else if(Step_F2)
-		{
-			HAL_GPIO_WritePin(CYLINDER_6R_GPIO_Port, CYLINDER_6R_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(CYLINDER_6F_GPIO_Port, CYLINDER_6F_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(MOTOR_2_GPIO_Port, MOTOR_2_Pin, GPIO_PIN_RESET);
-			HAL_TIM_Base_Stop_IT(&htim6);
-			Step_F2=false;
-			Step_F3=true;
-			TIM6->PSC = APB1_Prescalar;
-			TIM6->ARR = APB1ARR_Stop;
-			HAL_TIM_Base_Start_IT(&htim6);
-		}
-		else if(Step_F4 )
-		{
-			HAL_GPIO_WritePin(CYLINDER_6R_GPIO_Port, CYLINDER_6R_Pin, GPIO_PIN_SET);
-			HAL_GPIO_WritePin(CYLINDER_6F_GPIO_Port, CYLINDER_6F_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(MOTOR_2_GPIO_Port, MOTOR_2_Pin, GPIO_PIN_SET);
-			HAL_TIM_Base_Stop_IT(&htim6);
-			TIM6->PSC = APB1_Prescalar;
-			TIM6->ARR = APB1ARR_UpMovement;
-			HAL_TIM_Base_Start_IT(&htim6);
-			Step_F5=true;
-		}
-		else if(Step_F6)
-		{
-			HAL_GPIO_WritePin(CYLINDER_6R_GPIO_Port, CYLINDER_6R_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(CYLINDER_6F_GPIO_Port, CYLINDER_6F_Pin, GPIO_PIN_RESET);
-			HAL_GPIO_WritePin(MOTOR_2_GPIO_Port, MOTOR_2_Pin, GPIO_PIN_RESET);
-			HAL_TIM_Base_Stop_IT(&htim6);
-			Unit_F1=false;
-			Step_F1=false;
-			Step_F2=false;
-			Step_F3=false;
-			Step_F4=false;
-			Step_F5=false;
-			Step_F6=false;
-		}
-
-		// Automatic Mode for Unit 6 Ends here
+	}
+    /* Automatic Mode for Unit 1 ends here */
 }
 
 
+void Start_Machine(uint32_t Id)
+{
+	switch(Cylinder_position[Id])
+		{
+
+		  case POSITION_1:{
+//			  	  	  	   if(Get_Pedal_State(Id,FORWARD)==GPIO_PIN_RESET)
+//			  			    {
+//			  	  	  		          Timer_counter[Id]=0;
+//			  	  	  		          Stop_APBx_Timer_Interrupt(Id);
+//			  			  	  	  	  Set_Cylinder_Direction(Id,FORWARD);
+//			  			  	  	  	  Set_Cylinder_Position(Id,POSITION_2);
+//			  			  	  	      Start_APBx_Timer_Interrupt(Id,Machine_information.Station_Information[Id].Down_Movement_Duration);
+//			  			  	}
+
+			  	  	  	  	if(Get_Pedal_State(Id,FORWARD)==GPIO_PIN_RESET)
+			  	  	  	  	{
+			  	  	  	              Set_Cylinder_Direction(Id,FORWARD);
+			  	  	  	  			  Start_APBx_Timer_Interrupt(Id,Machine_information.Station_Information[Id].Down_Movement_Duration);
+
+			  	  	  	  			  if(Timer_counter[Id]>=Timer_timeout[Id])
+			  	  	  	  			  {
+			  	  	  	  				  Set_Cylinder_Position(Id,POSITION_2);
+			  	  	  	  			  }
+			  	  	  	  	}
+			  	  	  	    else if(Get_Pedal_State(Id,REVERSE)==GPIO_PIN_RESET)
+			  	  	  	  	{
+			  	  	  	  			  if(Timer_counter[Id]>0)
+			  	  	  	  			  {
+			  	  	  	  				  Start_APBx_Timer_Interrupt(Id,Machine_information.Station_Information[Id].Down_Movement_Duration);
+			  	  	  	  				  Set_Cylinder_Direction(Id,REVERSE);
+			  	  	  	  				  if(Timer_counter[Id]>=Timer_timeout[Id])
+			  	  	  	  				  {
+			  	  	  	  					  Set_Cylinder_Position(Id,POSITION_1);
+			  	  	  	  				  }
+			  	  	  	  			  }
+			  	  	  	  			  else
+			  	  	  	  			  {
+			  	  	  	  				  Set_Cylinder_Direction(Id,STOP);
+			  	  	  	  			  }
+			  	  	  	  	}
+			  	  	  	  	else if(Get_Pedal_State(Id,FORWARD)==GPIO_PIN_SET || Get_Pedal_State(Id,REVERSE)==GPIO_PIN_SET)
+			  	  	  	  	{
+			  	  	  	  			  Stop_APBx_Timer_Interrupt(Id);
+			  	  	  	  			  Set_Cylinder_Direction(Id,STOP);
+			  	  	  	  	}
+			  	  	  	   }
+		  	  	  	  	  	break;
+
+		  case POSITION_2:  if(Timer_counter[Id]>=Timer_timeout[Id])
+		    				{
+			  	  	  	  	  	Stop_APBx_Timer_Interrupt(Id);
+		    					Set_Cylinder_Direction(Id,STOP);
+		    					Set_Cylinder_Position(Id,POSITION_3);
+		    					Start_APBx_Timer_Interrupt(Id,Machine_information.Station_Information[Id].Stop_Movement_Duration);
+		    				}
+		  	  	  	  	  	break;
+
+		  case POSITION_3: if(Timer_counter[Id]>=Timer_timeout[Id])
+		  	  	  	  	   {
+			  	  	  	  	  	Stop_APBx_Timer_Interrupt(Id);
+			  	  	  	  	  	Start_APBx_Timer_Interrupt(Id,Machine_information.Station_Information[Id].Up_Movement_Duration);
+								Set_Cylinder_Position(Id,POSITION_4);
+								Set_Cylinder_Direction(Id,REVERSE);
+		  	  	  	  	   }
+		  	  	  	  	  	break;
+
+		  case POSITION_4: if(Timer_counter[Id]>=Timer_timeout[Id])
+		  	  	  	  	   {
+			  	  	  	  	  	Stop_APBx_Timer_Interrupt(Id);
+		    					Set_Cylinder_Direction(Id,STOP);
+		    					Set_Cylinder_Position(Id,POSITION_1);
+		  	  	  	  	   }
+		  	  	  	  	   break;
+
+		  default         : break;
+		}
+
+}
 
 
 
@@ -429,99 +135,145 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if(htim->Instance == TIM1)
 	{
-		if(Step_A1)
+		if(Cylinder_position[STATION_1]==POSITION_1)
 		{
-			Step_A2=true;
+			if(Machine_information.Station_Information[STATION_1].Cylinder_direction==FORWARD)
+			{
+				Timer_counter[STATION_1]++;
+			}
+			else if(Machine_information.Station_Information[STATION_1].Cylinder_direction==REVERSE)
+			{
+				if(Timer_counter[STATION_1]>0)
+				  Timer_counter[STATION_1]--;
+			}
+			else
+			{
+
+			}
 		}
-		else if(Step_A3)
+		else
 		{
-			Step_A4=true;
-		}
-		else if(Step_A5)
-		{
-			Step_A6=true;
+			Timer_counter[STATION_1]++;
 		}
 	}
 
 	if(htim->Instance == TIM2)
 	{
-		if(Step_B1)
+		if(Cylinder_position[STATION_2]==POSITION_1)
 		{
-			Step_B2=true;
-		}
-		else if(Step_B3)
-		{
-			Step_B4=true;
-		}
-		else if(Step_B5)
-		{
-			Step_B6=true;
-		}
+			if(Machine_information.Station_Information[STATION_2].Cylinder_direction==FORWARD)
+			{
+				Timer_counter[STATION_2]++;
+			}
+			else if(Machine_information.Station_Information[STATION_2].Cylinder_direction==REVERSE)
+			{
+				if(Timer_counter[STATION_2]>0)
+				  Timer_counter[STATION_2]--;
+			}
+			else
+			{
 
+			}
+		}
+		else
+		{
+			Timer_counter[STATION_2]++;
+		}
 	}
 
 	if(htim->Instance == TIM3)
 	{
-		if(Step_C1)
+		if(Cylinder_position[STATION_3]==POSITION_1)
 		{
-			Step_C2=true;
-		}
-		else if(Step_C3)
-		{
-			Step_C4=true;
-		}
-		else if(Step_C5)
-		{
-			Step_C6=true;
-		}
+			if(Machine_information.Station_Information[STATION_3].Cylinder_direction==FORWARD)
+			{
+				Timer_counter[STATION_3]++;
+			}
+			else if(Machine_information.Station_Information[STATION_3].Cylinder_direction==REVERSE)
+			{
+				if(Timer_counter[STATION_3]>0)
+				  Timer_counter[STATION_3]--;
+			}
+			else
+			{
 
+			}
+		}
+		else
+		{
+			Timer_counter[STATION_3]++;
+		}
 	}
 
 	if(htim->Instance == TIM4)
 	{
-		if(Step_D1)
+		if(Cylinder_position[STATION_4]==POSITION_1)
 		{
-			Step_D2=true;
+			if(Machine_information.Station_Information[STATION_4].Cylinder_direction==FORWARD)
+			{
+				Timer_counter[STATION_4]++;
+			}
+			else if(Machine_information.Station_Information[STATION_4].Cylinder_direction==REVERSE)
+			{
+				if(Timer_counter[STATION_4]>0)
+				  Timer_counter[STATION_4]--;
+			}
+			else
+			{
+
+			}
 		}
-		else if(Step_D3)
+		else
 		{
-			Step_D4=true;
-		}
-		else if(Step_D5)
-		{
-			Step_D6=true;
+			Timer_counter[STATION_4]++;
 		}
 	}
 
 	if(htim->Instance == TIM5)
 	{
-		if(Step_E1)
+		if(Cylinder_position[STATION_5]==POSITION_1)
 		{
-		    Step_E2=true;
+			if(Machine_information.Station_Information[STATION_5].Cylinder_direction==FORWARD)
+			{
+				Timer_counter[STATION_5]++;
+			}
+			else if(Machine_information.Station_Information[STATION_5].Cylinder_direction==REVERSE)
+			{
+				if(Timer_counter[STATION_5]>0)
+				  Timer_counter[STATION_5]--;
+			}
+			else
+			{
+
+			}
 		}
-		else if(Step_E3)
+		else
 		{
-			Step_E4=true;
-		}
-		else if(Step_E5)
-		{
-			Step_E6=true;
+			Timer_counter[STATION_5]++;
 		}
 	}
 
 	if(htim->Instance == TIM6)
 	{
-		if(Step_F1)
+		if(Cylinder_position[STATION_6]==POSITION_1)
 		{
-			Step_F2=true;
+			if(Machine_information.Station_Information[STATION_6].Cylinder_direction==FORWARD)
+			{
+				Timer_counter[STATION_6]++;
+			}
+			else if(Machine_information.Station_Information[STATION_6].Cylinder_direction==REVERSE)
+			{
+				if(Timer_counter[STATION_6]>0)
+				  Timer_counter[STATION_6]--;
+			}
+			else
+			{
+
+			}
 		}
-		else if(Step_F3)
+		else
 		{
-			Step_F4=true;
-		}
-		else if(Step_F5)
-		{
-			Step_F6=true;
+			Timer_counter[STATION_6]++;
 		}
 	}
 }
@@ -529,52 +281,140 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 void Stop_Machine(void)
 {
-	Unit_A1=false;
-	Unit_B1=false;
-	Unit_C1=false;
-	Unit_D1=false;
-	Unit_E1=false;
-	Unit_F1=false;
 
-	Step_A1=false,Step_B1=false,Step_C1=false,Step_D1=false,Step_E1=false,Step_F1=false;
-	Step_A2=false,Step_B2=false,Step_C2=false,Step_D2=false,Step_E2=false,Step_F2=false;
-	Step_A3=false,Step_B3=false,Step_C3=false,Step_D3=false,Step_E3=false,Step_F3=false;
-	Step_A4=false,Step_B4=false,Step_C4=false,Step_D4=false,Step_E4=false,Step_F4=false;
-	Step_A5=false,Step_B5=false,Step_C5=false,Step_D5=false,Step_E5=false,Step_F5=false;
-	Step_A6=false,Step_B6=false,Step_C6=false,Step_D6=false,Step_E6=false,Step_F6=false;
+	Device_init();
 
-	HAL_GPIO_WritePin(GPIOE, MOTOR_1_Pin|MOTOR_2_Pin, GPIO_PIN_RESET);
-
-	HAL_GPIO_WritePin(CYLINDER_1R_GPIO_Port, CYLINDER_1R_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(CYLINDER_1F_GPIO_Port, CYLINDER_1F_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(CYLINDER_2R_GPIO_Port, CYLINDER_2R_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(CYLINDER_2F_GPIO_Port, CYLINDER_2F_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(CYLINDER_3R_GPIO_Port, CYLINDER_3R_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(CYLINDER_3F_GPIO_Port, CYLINDER_3F_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(CYLINDER_4R_GPIO_Port, CYLINDER_4R_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(CYLINDER_4F_GPIO_Port, CYLINDER_4F_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(CYLINDER_5R_GPIO_Port, CYLINDER_5R_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(CYLINDER_5F_GPIO_Port, CYLINDER_5F_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(CYLINDER_6R_GPIO_Port, CYLINDER_6R_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(CYLINDER_6F_GPIO_Port, CYLINDER_6F_Pin, GPIO_PIN_RESET);
-
-	HAL_TIM_Base_Stop_IT(&htim1);
-	HAL_TIM_Base_Stop_IT(&htim2);
-	HAL_TIM_Base_Stop_IT(&htim3);
-	HAL_TIM_Base_Stop_IT(&htim4);
-	HAL_TIM_Base_Stop_IT(&htim5);
-	HAL_TIM_Base_Stop_IT(&htim6);
-
-	while( HAL_GPIO_ReadPin(EMERGENCY_STOP_GPIO_Port, EMERGENCY_STOP_Pin))
+	while(1)
 	{
 		HAL_GPIO_WritePin(ALARM_GPIO_Port, ALARM_Pin, GPIO_PIN_SET);
 		HAL_Delay(200);
 		HAL_GPIO_WritePin(ALARM_GPIO_Port, ALARM_Pin, GPIO_PIN_RESET);
 		HAL_Delay(200);
-
 	}
 
 
 }
+
+
+
+
+uint32_t Get_Cylinder_Position(Station_Id Id)
+{
+	uint32_t temp;
+
+	temp=Cylinder_position[Id];
+
+	return temp;
+}
+
+void Set_Cylinder_Position(Station_Id Id,uint32_t Position)
+{
+
+	Cylinder_position[Id]=Position;
+}
+
+
+
+uint32_t Get_Cylinder_Position_hold_Duration(Station_Id Id,Cylinder_Movement Direction)
+{
+	uint32_t duration;
+
+	if(Direction==FORWARD)
+	{
+		duration=(Machine_information.Station_Information[Id].Down_Movement_Duration)*(TIMER_ERROR_FACTOR);
+	}
+	else if(Direction==REVERSE)
+	{
+		duration=(Machine_information.Station_Information[Id].Up_Movement_Duration)*(TIMER_ERROR_FACTOR);
+	}
+	else if(Direction==STOP)
+	{
+		duration=(Machine_information.Station_Information[Id].Stop_Movement_Duration)*(TIMER_ERROR_FACTOR);
+	}
+	else
+	{
+
+	}
+	return duration;
+}
+
+
+
+
+void Start_APBx_Timer_Interrupt(Station_Id Id,uint32_t Duration)
+{
+	Timer_timeout[Id]=Duration;
+
+	switch(Id)
+	{
+		case STATION_1: {TIM1->PSC = APB1_CLOCK_FREQ;
+						 TIM1->ARR = TIMER_CALLBACK_TIMEOUT;
+						 HAL_TIM_Base_Start_IT(&htim1);}
+						 break;
+
+		case STATION_2: {TIM2->PSC = APB1_CLOCK_FREQ;
+						 TIM2->ARR = TIMER_CALLBACK_TIMEOUT;
+						 HAL_TIM_Base_Start_IT(&htim2);}
+						 break;
+
+		case STATION_3: {TIM3->PSC = APB1_CLOCK_FREQ;
+						 TIM3->ARR = TIMER_CALLBACK_TIMEOUT;
+						 HAL_TIM_Base_Start_IT(&htim3);}
+						 break;
+
+		case STATION_4: {TIM4->PSC = APB1_CLOCK_FREQ;
+						 TIM4->ARR = TIMER_CALLBACK_TIMEOUT;
+						 HAL_TIM_Base_Start_IT(&htim4);}
+						 break;
+
+		case STATION_5: {TIM5->PSC = APB1_CLOCK_FREQ;
+						 TIM5->ARR = TIMER_CALLBACK_TIMEOUT;
+						 HAL_TIM_Base_Start_IT(&htim5);}
+						 break;
+
+		case STATION_6: {TIM6->PSC = APB1_CLOCK_FREQ;
+						 TIM6->ARR = TIMER_CALLBACK_TIMEOUT;
+						 HAL_TIM_Base_Start_IT(&htim6);}
+						 break;
+
+		default       :  break;
+	}
+}
+
+
+
+void Stop_APBx_Timer_Interrupt(Station_Id Id)
+{
+
+	if(Cylinder_position[Id] != POSITION_1)
+	{
+		Timer_counter[Id]=0;
+	}
+	switch(Id)
+		{
+			case STATION_1: HAL_TIM_Base_Stop_IT(&htim1);
+							break;
+
+			case STATION_2: HAL_TIM_Base_Stop_IT(&htim2);
+							break;
+
+			case STATION_3: HAL_TIM_Base_Stop_IT(&htim3);
+							break;
+
+			case STATION_4: HAL_TIM_Base_Stop_IT(&htim4);
+							break;
+
+			case STATION_5: HAL_TIM_Base_Stop_IT(&htim5);
+							break;
+
+			case STATION_6: HAL_TIM_Base_Stop_IT(&htim6);
+							break;
+
+			default       : break;
+		}
+}
+
+
+
 /* USER CODE END 0 */
 

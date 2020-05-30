@@ -5,6 +5,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Core/Src/Automatic_Mode.c \
+../Core/Src/Eeprom.c \
 ../Core/Src/Manual_Mode.c \
 ../Core/Src/eth.c \
 ../Core/Src/gpio.c \
@@ -21,6 +22,7 @@ C_SRCS += \
 
 OBJS += \
 ./Core/Src/Automatic_Mode.o \
+./Core/Src/Eeprom.o \
 ./Core/Src/Manual_Mode.o \
 ./Core/Src/eth.o \
 ./Core/Src/gpio.o \
@@ -37,6 +39,7 @@ OBJS += \
 
 C_DEPS += \
 ./Core/Src/Automatic_Mode.d \
+./Core/Src/Eeprom.d \
 ./Core/Src/Manual_Mode.d \
 ./Core/Src/eth.d \
 ./Core/Src/gpio.d \
@@ -55,6 +58,8 @@ C_DEPS += \
 # Each subdirectory must supply rules for building sources it contributes
 Core/Src/Automatic_Mode.o: ../Core/Src/Automatic_Mode.c
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/Automatic_Mode.d" -MT"$@" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
+Core/Src/Eeprom.o: ../Core/Src/Eeprom.c
+	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/Eeprom.d" -MT"$@" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 Core/Src/Manual_Mode.o: ../Core/Src/Manual_Mode.c
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m7 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F746xx -DDEBUG -c -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F7xx/Include -I../Core/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc -I../Drivers/STM32F7xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/Manual_Mode.d" -MT"$@" --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 Core/Src/eth.o: ../Core/Src/eth.c

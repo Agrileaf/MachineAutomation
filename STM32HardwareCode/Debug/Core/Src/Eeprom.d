@@ -1,5 +1,5 @@
-Core/Src/stm32f7xx_hal_msp.o: ../Core/Src/stm32f7xx_hal_msp.c \
- ../Core/Inc/main.h ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
+Core/Src/Eeprom.o: ../Core/Src/Eeprom.c ../Core/Inc/main.h \
+ ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../Core/Inc/stm32f7xx_hal_conf.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_rcc.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_def.h \
@@ -34,7 +34,9 @@ Core/Src/stm32f7xx_hal_msp.o: ../Core/Src/stm32f7xx_hal_msp.c \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_ll_usb.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_pcd_ex.h \
  ../Core/Inc/System_variables.h ../Core/Inc/main.h \
- ../Core/Inc/Automatic_Mode.h ../Core/Inc/Manual_Mode.h
+ ../Core/Inc/Automatic_Mode.h ../Core/Inc/Manual_Mode.h \
+ ../Core/Inc/gpio.h ../Core/Inc/tim.h ../Core/Inc/Eeprom.h \
+ ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h
 
 ../Core/Inc/main.h:
 
@@ -113,3 +115,11 @@ Core/Src/stm32f7xx_hal_msp.o: ../Core/Src/stm32f7xx_hal_msp.c \
 ../Core/Inc/Automatic_Mode.h:
 
 ../Core/Inc/Manual_Mode.h:
+
+../Core/Inc/gpio.h:
+
+../Core/Inc/tim.h:
+
+../Core/Inc/Eeprom.h:
+
+../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_flash_ex.h:

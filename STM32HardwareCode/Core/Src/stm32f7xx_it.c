@@ -310,7 +310,6 @@ void EXTI15_10_IRQHandler(void)
   /* USER CODE END EXTI15_10_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_13);
   HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_14);
-  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
   /* USER CODE BEGIN EXTI15_10_IRQn 1 */
 
   /* USER CODE END EXTI15_10_IRQn 1 */
@@ -347,18 +346,20 @@ void TIM6_DAC_IRQHandler(void)
 /* USER CODE BEGIN 1 */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-	if(GPIO_Pin == EMERGENCY_STOP_Pin)
+
+	if(GPIO_Pin == AUTOMATIC_MODE_Pin)
 	{
-		Machine_Mode=EMERGENCY_STOP;
+		if(!HAL_GPIO_ReadPin(AUTOMATIC_MODE_GPIO_Port, AUTOMATIC_MODE_Pin))
+		{
+			Machine_Mode=AUTOMATIC;
+		}
+		else
+		{
+			Machine_Mode=MANUAL;
+			//Device_init();
+		}
 	}
-	else if(GPIO_Pin == AUTOMATIC_MODE_Pin)
-	{
-		Machine_Mode=AUTOMATIC;
-	}
-	else if(GPIO_Pin == MANUAL_MODE_Pin)
-	{
-		Machine_Mode=MANUAL;
-	}
+
 }
 /* USER CODE END 1 */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

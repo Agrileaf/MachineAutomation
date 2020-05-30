@@ -1,1 +1,9 @@
-gpio.c:40:6:MX_GPIO_Init	64	static
+gpio.c:43:6:MX_GPIO_Init	64	static
+gpio.c:153:6:Set_Cylinder_Direction	16	static
+gpio.c:167:6:Cylinder1_Action	16	static
+gpio.c:209:6:Cylinder2_Action	16	static
+gpio.c:251:6:Cylinder3_Action	16	static
+gpio.c:290:6:Cylinder4_Action	16	static
+gpio.c:329:6:Cylinder5_Action	16	static
+gpio.c:368:6:Cylinder6_Action	16	static
+gpio.c:407:15:Get_Pedal_State	24	static
